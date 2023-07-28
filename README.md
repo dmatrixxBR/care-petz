@@ -15,8 +15,8 @@ https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=
 ## Checklist
 
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop. 
-- [X] Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro)
-- [X] Apresentar as telas com layout responsivo usando ou não algum framework CSS.
+- [ ] Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro)
+- [ ] Apresentar as telas com layout responsivo usando ou não algum framework CSS.
 - [ ] Construir páginas web com o conceito de componentes.
 - [ ] Criar o layout da aplicação com componentes, ou seja, o cabeçalho e rodapé precisam ser componentes.
 - [ ] Usar pelo menos dois tipos de data-binding (Interpolation, Property Binding, Event Binding e Two Way Data Binding).
