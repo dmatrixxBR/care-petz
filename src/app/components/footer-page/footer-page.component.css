@@ -12,9 +12,14 @@
   }
 
   .text-footer {    
+    position: relative;
+    left: 0%;
+    right: 20%;
+    top: 40%;
+    bottom: 20%;    
     text-align: center;
     vertical-align: center;
-   
+    
     font-size: 24px;
     font-family: Roboto;
     line-height: auto;
