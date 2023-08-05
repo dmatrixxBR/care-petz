@@ -1,0 +1,38 @@
+.header-page-container {
+    height: 160px;
+    width: 1280px;
+    background-color: #ffffff;
+  }
+  .header-page {
+    border-radius: 56px;
+    height: 160px;
+    width: 1280px;
+    background-color: #137d7d;
+  }
+  .text-header {
+    text-align: left;
+    vertical-align: top;
+    font-size: 48px;
+    font-family: Roboto;
+    line-height: auto;
+    color: #ffffff;
+  }
+  .module-text {
+    height: 38px;
+    width: 126px;
+    background-color: #ffffff;
+  }
+  .text-modulo {
+    text-align: left;
+    vertical-align: top;
+    font-size: 32px;
+    font-family: Roboto;
+    line-height: auto;
+    color: #ffffff;
+  }
+  .logo {
+    height: 138px;
+    width: 173px;
+    background-color: #ffffff;
+  }
+  
