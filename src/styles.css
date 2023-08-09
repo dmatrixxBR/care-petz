@@ -4,14 +4,15 @@
 @media (min-width: 768px) and (max-width: 1980px) {
 /*header*/
     .header-page {
-        border-radius: 56px;
+        position:relative;
+        border-radius: 0px;
         position:center;
-        left: 0%;
-        right: 0%;
+        left: 10%;
+        right: 10%;
         top: 0%;
         bottom: 0%;
         height: 160px;
-        width: 100%;
+        width: 80%;
         background-color: #137d7d;
       }
       
@@ -47,7 +48,7 @@
         position: absolute;
         left: 50.55%;
         right: 40.94%;
-        top: 2%;
+        top: 6%;
         bottom: 15%;
         height: 95px;
         width: 130px;
@@ -55,26 +56,31 @@
       }
 
       /*container*/
-        .body-page {        
+        .body-page {    
+            position: relative; 
+            left: 10%;
+            right: 10%;
+            top: 0%;
+            bottom: 0%;   
             height: 720px;
-            width: 100%;
-            border-radius: 56px;
+            width: 80%;
+            border-radius: 0px;
             background-color: #137d7d;
             margin-top: 0.1%;
           }
       /*footer*/    
 
       .frame-footer {
-        /*position: relative;*/
-        left: 0%;
-        right: 0%;
+        position: relative;
+        left: 10%;
+        right: 10%;
         top: 0%;
         bottom: 0%;
-        border-radius: 56px;
+        border-radius: 0px;
         height: 160px;
-        width: 100%;
+        width: 80%;
         background-color: #137d7d;
-        margin-top: -1.9%;
+        margin-top: -1.2%;
       }
     
       .text-footer {    
@@ -157,15 +163,15 @@
 
       .frame-footer {
         position:relative;
-        left: -5%;
+        left: 0%;
         right: 0%;
         top: 0%;
         bottom: 0%;
         /*border-radius: 56px;*/
         height: 160px;
-        width: 110%;
+        width: 100%;
         background-color: #137d7d;
-        margin-top: -5.9%;
+        margin-top: -3.5%;
       }
     
       .text-footer {    
