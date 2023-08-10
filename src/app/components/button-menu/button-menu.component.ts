@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-menu',
@@ -6,10 +6,11 @@ import { Component,OnInit } from '@angular/core';
   styleUrls: ['./button-menu.component.css']
 })
 export class ButtonMenuComponent implements OnInit {
-buttonLabel:string;
+
+@Input() buttonLabel:string;
 
 constructor(){
-  this.buttonLabel = 'teste';
+  this.buttonLabel = '';
 }
 
 ngOnInit(): void {}

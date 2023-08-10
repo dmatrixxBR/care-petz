@@ -9,4 +9,17 @@ export class BodyPageComponent implements OnInit {
 
 
   ngOnInit(): void {}
+
+  onButtonServiceClick(event: Event) {
+    alert `Clicou no botão de Serviços`;
+  }
+
+  onButtonClientClick(event: Event) {
+    alert `Clicou no botão de Clientes`;
+  }
+
+  onButtonAgendaClick(event: Event) {
+    alert `Clicou no botão de Agenda`;
+  }
+
 }
