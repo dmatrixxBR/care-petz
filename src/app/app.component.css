@@ -14,7 +14,7 @@ header {
 /* Estilo para o conteúdo principal */
 main {
     flex: 1; /* Faz com que ocupe o espaço disponível restante */
-    padding: 20px;
+    padding: 0%;
 }
 
 /* Estilo para o rodapé */

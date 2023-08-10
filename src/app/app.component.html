@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="/src/styles.css">
 </head>
     <app-header-page></app-header-page>
-    <app-body-page></app-body-page>    
+    <main>
+      <router-outlet>
+        <app-body-page></app-body-page>
+      </router-outlet>
+    </main>        
     <footer><app-footer-page></app-footer-page></footer>
 </html>
