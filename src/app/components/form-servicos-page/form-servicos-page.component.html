@@ -1,0 +1,45 @@
+<div class="body-page">
+<div class="row">
+<form #form="ngForm" class="col s12"  (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="input-field col s3">
+          <input            
+           id="codigoServico" 
+           type="number" 
+           class="validate"
+           [(ngModel)]="this.servico.codigoServico" name="codigoServico">
+          <label for="codigo_servico">Código Serviço</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+          <input 
+            id="descricaoServico" 
+            type="text" 
+            class="validate"
+            [(ngModel)]="this.servico.descricaoServico" 
+            name="descricaoServico"
+            >
+          <label for="descricaoServico">Descrição</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+          <input 
+            id="valorServico" 
+            type="number" 
+            class="validate"
+            [(ngModel)]="this.servico.valorServico" 
+            name="valorServico"
+            >
+          <label for="valorServico">Valor do Serviço</label>
+        </div>
+    </div> 
+    <div class="row">
+       <button class="btn waves-effect waves-green" type="submit" name="action">Gravar 
+        <i class="material-icons right">send</i>
+       </button>
+    </div>       
+</form>
+</div>
+</div>
