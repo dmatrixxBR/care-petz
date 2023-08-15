@@ -5,11 +5,11 @@ de agendamento de serviços para pets por um profissional autonomo.
 O frontend da aplicação será desenvolvido com Angular e o backend simulado pela implementação de uma API Fake, usando o JSON Server.
 
 
-## Endere?o de Deploy - GitHub Pages
+## Endereço de Deploy - GitHub Pages
 https://github.com/dmatrixxBR/care-petz
 
 
-## Prot?tipo
+## Protótipo
 https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=8-124&t=4LfgHOnvf8dwDktZ-0&scaling=contain&page-id=6%3A2&starting-point-node-id=8%3A124
 
 ## Checklist
@@ -33,7 +33,7 @@ https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=
 - [ ] Formatar a apresentação de dados com Pipes. 
 - [ ] Build e deploy da aplicação. 
 
-## Manual de execu??o
+## Manual de execução
 - Clonar o repositório com `git clone`
 - Fazer checkout no branch `develop` que contém as modificações mais recentes
 - Abrir o projeto no editor Visual Studio Code (VS Code)
