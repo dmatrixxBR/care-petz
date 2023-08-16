@@ -149,7 +149,7 @@
         position:absolute;
         border-radius: 0px;
         margin-top: 5%;          
-        left: 20%;
+        left: 15%;
         right: 20%;
         top: 0%;
         bottom: 0%;
@@ -173,6 +173,12 @@
     top: -60%;
     left: 0;
     color: #FFFFFF;
+  }
+
+  .full-width {
+    display: block;
+    width: 70%;
+    box-sizing: border-box;
   }
   
 
