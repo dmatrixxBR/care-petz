@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import * as M from 'materialize-css';
 @Component({
   selector: 'app-body-page',
   templateUrl: './body-page.component.html',
@@ -11,15 +12,17 @@ export class BodyPageComponent implements OnInit {
   ngOnInit(): void {}
 
   onButtonServiceClick(event: Event) {
-    alert `Clicou no botão de Serviços`;
+    M.toast({html: `Bem vindo ao Cadastro de Serviços`,displayLength: 1500, classes:'green'});
   }
 
   onButtonClientClick(event: Event) {
-    alert `Clicou no botão de Clientes`;
+    M.toast({html: `Bem vindo ao Cadastro de Clientes `,displayLength: 1500, classes:'green'});
+
   }
 
   onButtonAgendaClick(event: Event) {
-    alert `Clicou no botão de Agenda`;
+    M.toast({html: `Bem vindo ao Agendamento de Serviços`,displayLength: 1500, classes:'green'});
+
   }
 
 }

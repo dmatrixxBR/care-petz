@@ -129,6 +129,7 @@
         font-size: 32px;
         line-height: 38px;
         color: #FFFFFF;
+        cursor: pointer;
       }
 
       .button-menu-label {
@@ -307,6 +308,7 @@
           font-size: 32px;
           line-height: 38px;
           color: #FFFFFF;
+          cursor: pointer;
         }
   
         .button-menu-label {
