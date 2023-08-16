@@ -144,6 +144,38 @@
         line-height: 38px;
         color: #FFFFFF;
       }
+    
+      .body-form {
+        position:absolute;
+        border-radius: 0px;
+        margin-top: 5%;          
+        left: 20%;
+        right: 20%;
+        top: 0%;
+        bottom: 0%;
+        height: 20%;
+        width: 80%;
+      background-color: #137d7d;
+      }  
+
+      .input-field input {          
+          color: #FFFFFF;          
+      }     
+
+      .input-field input:focus  {
+        background-color: #45B4BB;
+        border-color: #ffffff;
+        border-radius: 20px;
+    }
+
+   .input-field label {
+    position:absolute;
+    top: -60%;
+    left: 0;
+    color: #FFFFFF;
+  }
+  
+
 
 
        
@@ -284,5 +316,35 @@
           line-height: 38px;
           color: #FFFFFF;
         }
+
+        .body-form {
+          position:absolute;
+          border-radius: 0px;
+          margin-top: 0%;          
+          left: 5%;
+          right: 5%;
+          top: 20%;
+          bottom: 0%;
+          height: 200px;
+          width: 90%;
+        background-color: #137d7d;
+        }  
+  
+        .input-field input {          
+            color: #FFFFFF;          
+        }     
+  
+        .input-field input:focus  {
+          background-color: #45B4BB;
+          border-color: #ffffff;
+          border-radius: 20px;
+      }
+  
+     .input-field label {
+      position:absolute;
+      top: -60%;
+      left: 0;
+      color: #FFFFFF;
+    }
 
 }
