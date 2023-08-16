@@ -6,8 +6,9 @@ import { FormServicosPageComponent } from './components/form-servicos-page/form-
 import { FormServicosListPageComponent } from './components/form-servicos-list-page/form-servicos-list-page.component';
 
 const routes: Routes = [
-  {path: "", component: FormServicosPageComponent},
+  {path: "", component: BodyPageComponent},  
   {path: "petz", component: BodyPageComponent},
+  {path: "petz/servicos", component: FormServicosPageComponent},
   {path: "petz/servicos/lista", component:FormServicosListPageComponent}
 ];
 
