@@ -1,1 +1,85 @@
-<p>form-agenda-page works!</p>
+<div class="body-page">
+    <div class="body-form">
+    <form #form="ngForm" class="col s12"(ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="input-field col s4">
+              <input            
+               id="codigoAgenda" 
+               type="text" 
+               disabled="true"
+               class="validate"
+               [(ngModel)]="this.agenda.codigoAgenda" name="codigoAgenda">
+              <label for="codigoAgenda">Código Agendamento</label>
+            </div>
+            <div class="input-field col s3">
+              <input 
+                id="dataAgenda" 
+                type="text" 
+                class="validate"
+                [(ngModel)]="this.agenda.dataAgenda" 
+                name="dataAgenda"
+                >
+              <label for="dataAgenda">Data Agendamento</label>
+            </div>
+        
+            <div class="input-field col s3">
+              <input 
+                id="horaAgenda" 
+                type="text" 
+                class="validate"
+                [(ngModel)]="this.agenda.horaAgenda" 
+                name="horaAgenda"
+                >
+              <label for="horaAgenda">Hora Agendamento</label>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="input-field col s3">
+              <input 
+                id="clienteAgenda" 
+                type="text" 
+                class="validate"
+                [(ngModel)]="this.agenda.clienteAgenda" 
+                name="clienteAgenda"
+                >
+              <label for="clienteAgenda">Cliente</label>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="input-field col s3">
+              <input 
+                id="servicoAgenda" 
+                type="text" 
+                class="validate"
+                [(ngModel)]="this.agenda.servicoAgenda" 
+                name="servicoAgenda"
+                >
+              <label for="servicoAgenda">Servico</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+              <input 
+                id="valorServico" 
+                type="number" 
+                class="validate"
+                [(ngModel)]="this.agenda.valorServico" 
+                name="valorServico"
+                >
+              <label for="valorServico">Valor</label>
+            </div>
+        </div>
+        <div class="row">              
+            <div class="col s6"><button 
+                                class="btn waves-effect waves-green btn-large full-width" 
+                                name="backtomenu"
+                                (click)="this.onMenuClick($event)">voltar para lista <i class="material-icons right">arrow_back</i>
+            </button></div>
+            <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" name="action">Gravar 
+              <i class="material-icons right">send</i>
+             </button></div>
+           
+        </div>       
+    </form>
+    </div>
+    </div>
