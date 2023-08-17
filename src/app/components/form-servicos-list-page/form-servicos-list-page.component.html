@@ -69,9 +69,16 @@
             </tbody>
           </table>
           <div class="row" style="margin: 10%;">              
-            <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" name="backtomenu">menu <i class="material-icons right">arrow_back</i>
+            <div class="col s6"><button 
+                                 class="btn waves-effect waves-green btn-large full-width" 
+                                 name="backtomenu"
+                                 (click)="this.onButtonMenuClick($event)">menu <i class="material-icons right">arrow_back</i>
             </button></div>
-            <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" name="action">Novo 
+            <div class="col s6"><button 
+                                 class="btn waves-effect waves-green btn-large full-width" 
+                                 type="submit" 
+                                 name="action"
+                                 (click)="this.onButtonServiceClick($event)">Novo 
               <i class="material-icons right">send</i>
              </button></div>
            

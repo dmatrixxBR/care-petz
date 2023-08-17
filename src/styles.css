@@ -174,21 +174,21 @@
       } 
 
       .input-field input {          
-          color: #FFFFFF;          
-      }     
+        color: #FFFFFF;          
+    }     
 
-      .input-field input:focus  {
-        background-color: #45B4BB;
-        border-color: #ffffff;
-        border-radius: 20px;
-    }
-
-   .input-field label {
-    position:absolute;
-    top: -60%;
-    left: 0;
-    color: #FFFFFF;
+    .input-field input:focus  {
+      background-color: #45B4BB;
+      border-color: #ffffff;
+      border-radius: 20px;
   }
+
+    .input-field label {
+      margin-top: -5%;
+      position:absolute;
+      left: 0;
+      color: #FFFFFF;
+   } 
 
   .full-width {
     display: block;

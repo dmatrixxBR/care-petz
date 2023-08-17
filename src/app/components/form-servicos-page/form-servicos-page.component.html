@@ -8,7 +8,7 @@
            type="number" 
            class="validate"
            [(ngModel)]="this.servico.codigoServico" name="codigoServico">
-          <label for="codigo_servico">Código Serviço</label>
+          <label for="codigoServico">Código Serviço</label>
         </div>
     </div>
     <div class="row">
@@ -36,7 +36,10 @@
         </div>
     </div> 
     <div class="row">              
-        <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" name="backtomenu">voltar para lista <i class="material-icons right">arrow_back</i>
+        <div class="col s6"><button 
+                            class="btn waves-effect waves-green btn-large full-width" 
+                            name="backtomenu"
+                            (click)="this.onMenuClick($event)">voltar para lista <i class="material-icons right">arrow_back</i>
         </button></div>
         <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" name="action">Gravar 
           <i class="material-icons right">send</i>
