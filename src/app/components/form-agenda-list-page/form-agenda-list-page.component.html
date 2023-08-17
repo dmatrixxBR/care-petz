@@ -1,0 +1,106 @@
+<div class="body-page">
+    <div class="body-list">
+        <table class="striped">
+            <thead>
+              <tr>
+                  <th>Código</th>
+                  <th>Data</th>
+                  <th>Hora</th>
+                  <th>Cliente</th>
+                  <th>Serviço</th>
+                  <th>Valor</th>
+                  <th>Ação</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr>
+                <td>0001</td>
+                <td>2023-08-17</td>
+                <td>08:00</td>                
+                <td>cleber</td>
+                <td>Care Petz</td>
+                <td>50.00</td>
+                <td [width]="100">
+                    <a href ="" class="secondary-content"><i
+                        class="material-icons left white-text">update</i></a>                     
+                    <a href ="" class="secondary-content"><i
+                    class="material-icons left red-text">delete</i></a>                   
+                </td>
+              </tr>
+              <tr>
+                <td>0002</td>
+                <td>2023-08-17</td>
+                <td>08:30</td>                
+                <td>Marcia</td>
+                <td>Care Petz</td>
+                <td>50.00</td>
+                <td [width]="100">
+                    <a href ="" class="secondary-content"><i
+                        class="material-icons left white-text">update</i></a>                     
+                    <a href ="" class="secondary-content"><i
+                    class="material-icons left red-text">delete</i></a>                   
+                </td>
+              </tr>
+              <tr>
+                <td>0003</td>
+                <td>2023-08-17</td>
+                <td>09:00</td>                
+                <td>Marcelo</td>
+                <td>Consulta Vetz</td>
+                <td>80.00</td>
+                <td [width]="100">
+                    <a href ="" class="secondary-content"><i
+                        class="material-icons left white-text">update</i></a>                     
+                    <a href ="" class="secondary-content"><i
+                    class="material-icons left red-text">delete</i></a>                   
+                </td>
+              </tr>
+              <tr>
+                <td>0004</td>
+                <td>2023-08-17</td>
+                <td>10:00</td>                
+                <td>cleber</td>
+                <td>Care Petz</td>
+                <td>50.00</td>
+                <td [width]="100">
+                    <a href ="" class="secondary-content"><i
+                        class="material-icons left white-text">update</i></a>                     
+                    <a href ="" class="secondary-content"><i
+                    class="material-icons left red-text">delete</i></a>                   
+                </td>
+              </tr>
+              <tr>
+                <td>0005</td>
+                <td>2023-08-17</td>
+                <td>11:00</td>                
+                <td>Daniel</td>
+                <td>Care Petz</td>
+                <td>50.00</td>
+                <td [width]="100">
+                    <a href ="" class="secondary-content"><i
+                        class="material-icons left white-text">update</i></a>                     
+                    <a href ="" class="secondary-content"><i
+                    class="material-icons left red-text">delete</i></a>                   
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row" style="margin: 10%;">              
+            <div class="col s6"><button 
+                                 class="btn waves-effect waves-green btn-large full-width" 
+                                 name="backtomenu"
+                                 (click)="this.onButtonMenuClick($event)">menu <i class="material-icons right">arrow_back</i>
+            </button></div>
+            <div class="col s6"><button 
+                                 class="btn waves-effect waves-green btn-large full-width" 
+                                 type="submit" 
+                                 name="action"
+                                 (click)="this.onButtonAgendaClick($event)">Novo 
+              <i class="material-icons right">send</i>
+             </button></div>
+           
+        </div>  
+    </div>
+     
+</div>       

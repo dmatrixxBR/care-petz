@@ -12,5 +12,12 @@ constructor(){
 }
 
 ngOnInit(): void {}   
+
+setTitlePage(title:string) {
+  this.titlePage = title;
 }
+
+}
+
+
 

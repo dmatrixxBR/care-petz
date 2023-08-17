@@ -14,4 +14,10 @@ constructor(){
 }
 
 ngOnInit(): void {}
+
+setButtonLabel(label:string) {
+  this.buttonLabel = label;
 }
+
+}
+

@@ -1,0 +1,64 @@
+<div class="body-page">
+    <div class="body-form">
+    <form #form="ngForm" class="col s12"(ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="input-field col s6">
+              <input            
+               id="codigoCliente" 
+               type="text" 
+               disabled="true"
+               class="validate"
+               [(ngModel)]="this.cliente.codigoCliente" name="codigoCliente">
+              <label for="codigoCliente">Código Cliente</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+              <input 
+                id="nomeCliente" 
+                type="text" 
+                class="validate"
+                [(ngModel)]="this.cliente.nomeCliente" 
+                name="nomeCliente"
+                >
+              <label for="nomeCliente">Nome</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+              <input 
+                id="celularCliente" 
+                type="text" 
+                class="validate"
+                [(ngModel)]="this.cliente.celularCliente" 
+                name="celularCliente"
+                >
+              <label for="celularCliente">Celular</label>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="input-field col s3">
+              <input 
+                id="emailCliente" 
+                type="text" 
+                class="validate"
+                [(ngModel)]="this.cliente.emailCliente" 
+                name="emailCliente"
+                >
+              <label for="emailCliente">Email</label>
+            </div>
+        </div> 
+        <div class="row">              
+            <div class="col s6"><button 
+                                class="btn waves-effect waves-green btn-large full-width" 
+                                name="backtomenu"
+                                (click)="this.onMenuClick($event)">voltar para lista <i class="material-icons right">arrow_back</i>
+            </button></div>
+            <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" name="action">Gravar 
+              <i class="material-icons right">send</i>
+             </button></div>
+           
+        </div>       
+    </form>
+    </div>
+    </div>

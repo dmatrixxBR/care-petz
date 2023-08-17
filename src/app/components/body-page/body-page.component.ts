@@ -19,13 +19,13 @@ export class BodyPageComponent implements OnInit {
   }
 
   onButtonClientClick(event: Event) {
-    M.toast({html: `Bem vindo ao Cadastro de Clientes `,displayLength: 1500, classes:'green'});
-
+    /*M.toast({html: `Bem vindo ao Cadastro de Clientes `,displayLength: 1500, classes:'green'});*/
+    this.router.navigate(['/petz/clientes/lista']);
   }
 
   onButtonAgendaClick(event: Event) {
-    M.toast({html: `Bem vindo ao Agendamento de Serviços`,displayLength: 1500, classes:'green'});
-
+    /*M.toast({html: `Bem vindo ao Agendamento de Serviços`,displayLength: 1500, classes:'green'});*/
+    this.router.navigate(['/petz/agenda/lista']);
   }
 
 }
