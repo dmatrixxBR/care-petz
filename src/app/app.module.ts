@@ -36,7 +36,7 @@ registerLocaleData(ptBr);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
