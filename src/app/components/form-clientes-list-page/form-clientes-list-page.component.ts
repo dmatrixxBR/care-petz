@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class FormClientesListPageComponent implements OnInit {
 
   title : string = 'Lista Clientes';
-  @Output() activate = new EventEmitter<any>();
+  @Output() activate = new EventEmitter<string>();
   constructor(private router: Router){
     this.activate.emit(this.title);
   }
@@ -23,6 +23,11 @@ export class FormClientesListPageComponent implements OnInit {
 
   onButtonClientClick(event: Event) {
     this.router.navigate(['/petz/clientes']);
+  }
+
+  onClickItem(id:string){
+    this.router.navigate(['/petz/clientes', id]);
+    
   }
 
 }

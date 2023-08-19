@@ -1,6 +1,6 @@
 import { Component, OnInit,Output,ViewChild,EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from './../../models/cliente';
 import * as M from 'materialize-css';
 
@@ -13,15 +13,19 @@ export class FormClientesPageComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
   cliente!:Cliente;
   title ='Clientes';
-  @Output() activate = new EventEmitter<any>();
+  @Output() activate = new EventEmitter<string>();
   
-  constructor(private router: Router){
+  constructor(private router: Router,private route :ActivatedRoute){
     this.activate.emit(this.title);
   }
 
     ngOnInit():void{
       this.setEmptyCliente();
       M.AutoInit();
+      let idParam: string = this.route.snapshot.paramMap.get('id')!;
+      if(idParam){
+        alert('tem parametro - '+  idParam);
+      }
     }
 
     setEmptyCliente() {
