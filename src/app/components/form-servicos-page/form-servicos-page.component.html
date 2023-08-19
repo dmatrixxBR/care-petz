@@ -1,11 +1,12 @@
-<div class="body-page">
+<div class="body-page"> 
 <div class="body-form">
 <form #form="ngForm" class="col s12"(ngSubmit)="onSubmit()">
     <div class="row">
         <div class="input-field col s3">
           <input            
            id="codigoServico" 
-           type="number" 
+           type="text"
+           disabled="true" 
            class="validate"
            [(ngModel)]="this.servico.codigoServico" name="codigoServico">
           <label for="codigoServico">Código Serviço</label>

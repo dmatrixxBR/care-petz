@@ -1,8 +1,9 @@
-import { Component, OnInit,Output,ViewChild,EventEmitter } from '@angular/core';
+import { Component, OnInit,Output,ViewChild,EventEmitter,AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Servico } from 'src/app/models/servico';
 import { Router } from '@angular/router';
 import * as M from 'materialize-css';
+import { HeaderPageComponent } from '../header-page/header-page.component';
 
 
 @Component({
@@ -13,14 +14,17 @@ import * as M from 'materialize-css';
 export class FormServicosPageComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
   servico!:Servico;
-
-  @Output() messageEvent = new EventEmitter<number>();
+  title!:string;
+  @Output() titleEvent = new EventEmitter<string>();
   
   constructor(private router: Router){}
 
     ngOnInit():void{
       this.setEmptyServico();
+      this.title = 'Serviços';
+      this.titleEvent.emit('Serviços');
     }
+
 
     setEmptyServico() {
       this.servico = new Servico();

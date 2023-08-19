@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header-page',
@@ -6,18 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
-titlePage: string;
+@Input() titlePage: string;
 constructor(){
   this.titlePage = '';
 }
 
 ngOnInit(): void {}   
 
-setTitlePage(title:string) {
-  this.titlePage = title;
+onTitleEvent(event: string){
+  this.titlePage = event;
 }
 
 }
+
 
 
 
