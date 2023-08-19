@@ -12,10 +12,12 @@ import * as M from 'materialize-css';
 export class FormClientesPageComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
   cliente!:Cliente;
-
-  @Output() messageEvent = new EventEmitter<number>();
+  title ='Clientes';
+  @Output() activate = new EventEmitter<any>();
   
-  constructor(private router: Router){}
+  constructor(private router: Router){
+    this.activate.emit(this.title);
+  }
 
     ngOnInit():void{
       this.setEmptyCliente();

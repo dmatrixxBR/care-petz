@@ -6,16 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
-@Input() titlePage: string;
-constructor(){
-  this.titlePage = '';
-}
+@Input() title: string="";
+constructor(){}
 
 ngOnInit(): void {}   
 
-onTitleEvent(event: string){
-  this.titlePage = event;
-}
 
 }
 

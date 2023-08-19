@@ -13,9 +13,11 @@ export class FormAgendaPageComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
   agenda!:Agenda;
 
-  @Output() messageEvent = new EventEmitter<number>();
-  
-  constructor(private router: Router){}
+  title ='Agenda';
+  @Output() activate = new EventEmitter<any>();
+  constructor(private router: Router){
+    this.activate.emit(this.title);
+  }
 
   ngOnInit():void{
     this.setEmptyAgenda();

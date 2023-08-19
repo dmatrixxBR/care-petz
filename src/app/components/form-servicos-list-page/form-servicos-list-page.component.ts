@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
 })
 export class FormServicosListPageComponent implements OnInit {
 
-  constructor(private router: Router){}
-
+  title ='Lista Serviços';
+  @Output() activate = new EventEmitter<any>();
+  
+  constructor(private router: Router){
+    this.activate.emit(this.title);
+  }
   ngOnInit(): void {}
 
   onButtonMenuClick(event: Event) {

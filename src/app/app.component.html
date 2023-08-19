@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="/src/styles.css">
 </head>
 <body>
-    <app-header-page #header></app-header-page>
+    <app-header-page #header [title]="this.titleRoute" ></app-header-page>
     <main>
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>        
-    <footer><app-footer-page #footer></app-footer-page></footer>
+    <footer><app-footer-page #footer [year]="this.year"></app-footer-page></footer>
   </body>    
 </html>

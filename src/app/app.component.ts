@@ -8,8 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'care-petz';
+  titleRoute: string = '';
+  year: number = new Date().getFullYear();
 
-  onTitleEvent(event:string){
-        
+  onActivate(event : any){
+    this.titleRoute = event.title; 
   }
+
 }
