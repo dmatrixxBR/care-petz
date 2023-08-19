@@ -10,15 +10,18 @@ import { FormAgendaPageComponent } from './components/form-agenda-page/form-agen
 import { FormAgendaListPageComponent } from './components/form-agenda-list-page/form-agenda-list-page.component';
 
 
-const routes: Routes = [
-  {path: "", component: BodyPageComponent},  
+const routes: Routes = [ 
   {path: "petz", component: BodyPageComponent},
-  {path: "petz/servicos", component: FormServicosPageComponent},
   {path: "petz/servicos/lista", component:FormServicosListPageComponent},
-  {path: "petz/clientes", component: FormClientesPageComponent},
+  {path: "petz/servicos", component: FormServicosPageComponent},
+  {path: "petz/servicos/:id", component: FormServicosPageComponent},
   {path: "petz/clientes/lista", component:FormClientesListPageComponent},
-  {path: "petz/agenda", component: FormAgendaPageComponent},
+  {path: "petz/clientes", component: FormClientesPageComponent},
+  {path: "petz/clientes/:id", component: FormClientesPageComponent},      
   {path: "petz/agenda/lista", component:FormAgendaListPageComponent},
+  {path: "petz/agenda", component: FormAgendaPageComponent},
+  {path: "petz/agenda/:id", component: FormAgendaPageComponent},
+  {path: "", component: BodyPageComponent}, 
 ];
 
 @NgModule({
