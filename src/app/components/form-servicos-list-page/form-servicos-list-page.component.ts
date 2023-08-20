@@ -1,5 +1,7 @@
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Servico } from 'src/app/models/servico';
+import { LocalStorageServicoService } from 'src/app/services/local-storage-servico.service';
 
 @Component({
   selector: 'app-form-servicos-list-page',
@@ -7,11 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-servicos-list-page.component.css']
 })
 export class FormServicosListPageComponent implements OnInit {
-
+  servicos: Servico[];
   title ='Lista Serviços';
   @Output() activate = new EventEmitter<any>();
   
-  constructor(private router: Router){
+  constructor(private router: Router,
+              private localStorageServicosService: LocalStorageServicoService){
+    this.servicos = this.localStorageServicosService.getData();            
     this.activate.emit(this.title);
   }
   ngOnInit(): void {}
@@ -23,6 +27,10 @@ export class FormServicosListPageComponent implements OnInit {
 
   onButtonServiceClick(event: Event) {
     this.router.navigate(['/petz/servicos']);
+  }
+
+  onClickItem(servico:Servico){
+    this.router.navigate(['/petz/servicos',servico.codigoServico]);    
   }
 
 

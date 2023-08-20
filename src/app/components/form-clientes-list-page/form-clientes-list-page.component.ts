@@ -32,9 +32,8 @@ export class FormClientesListPageComponent implements OnInit {
     this.router.navigate(['/petz/clientes']);
   }
 
-  onClickItem(id:string){
-    this.router.navigate(['/petz/clientes', id]);
-    
+  onClickItem(cliente:Cliente){
+    this.router.navigate(['/petz/clientes',cliente.codigoCliente]);    
   }
 
 }

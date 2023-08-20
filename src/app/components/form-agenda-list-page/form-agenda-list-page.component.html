@@ -14,75 +14,20 @@
             </thead>
     
             <tbody>
-              <tr>
-                <td>0001</td>
-                <td>2023-08-17</td>
-                <td>08:00</td>                
-                <td>cleber</td>
-                <td>Care Petz</td>
-                <td>50.00</td>
+             
+              <tr *ngFor="let agenda of this.agendas">
+                <td>{{agenda.codigoAgenda}}</td>
+                <td>{{agenda.dataAgenda}}</td>
+                <td>{{agenda.horaAgenda}}</td>                
+                <td>{{agenda.clienteAgenda.nomeCliente}}</td>
+                <td>{{agenda.servicoAgenda.descricaoServico}}</td>
+                <td>{{agenda.valorServico}}</td>
                 <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0002</td>
-                <td>2023-08-17</td>
-                <td>08:30</td>                
-                <td>Marcia</td>
-                <td>Care Petz</td>
-                <td>50.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0003</td>
-                <td>2023-08-17</td>
-                <td>09:00</td>                
-                <td>Marcelo</td>
-                <td>Consulta Vetz</td>
-                <td>80.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0004</td>
-                <td>2023-08-17</td>
-                <td>10:00</td>                
-                <td>cleber</td>
-                <td>Care Petz</td>
-                <td>50.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0005</td>
-                <td>2023-08-17</td>
-                <td>11:00</td>                
-                <td>Daniel</td>
-                <td>Care Petz</td>
-                <td>50.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
+                  <a (click)="onClickItem(agenda)" href ="" class="secondary-content"><i
+                      class="material-icons left white-text">update</i></a>                     
+                  <a href ="" class="secondary-content"><i
+                  class="material-icons left red-text">delete</i></a>                   
+              </td>
               </tr>
             </tbody>
           </table>

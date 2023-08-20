@@ -11,60 +11,17 @@
             </thead>
     
             <tbody>
-              <tr>
-                <td>0001</td>
-                <td>Hotel Petz</td>
-                <td>$5.00</td>
+             
+              <tr *ngFor="let servico of this.servicos">
+                <td [width]="400">{{servico.codigoServico}}</td>
+                <td>{{servico.descricaoServico}}</td>
+                <td>{{servico.valorServico}}</td>
                 <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0002</td>
-                <td>Delivery Petz</td>
-                <td>$10.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0003</td>
-                <td>Walking Petz</td>
-                <td>$15.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0004</td>
-                <td>Consulta Vetz</td>
-                <td>$20.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
-              </tr>
-              <tr>
-                <td>0005</td>
-                <td>Care Petz</td>
-                <td>$15.00</td>
-                <td [width]="100">
-                    <a href ="" class="secondary-content"><i
-                        class="material-icons left white-text">update</i></a>                     
-                    <a href ="" class="secondary-content"><i
-                    class="material-icons left red-text">delete</i></a>                   
-                </td>
+                  <a (click)="onClickItem(servico)" href ="" class="secondary-content"><i
+                      class="material-icons left white-text">update</i></a>                     
+                  <a href ="" class="secondary-content"><i
+                  class="material-icons left red-text">delete</i></a>                   
+              </td>
               </tr>
             </tbody>
           </table>
@@ -83,6 +40,5 @@
              </button></div>
            
         </div>  
-    </div>
-     
+    </div>  
 </div>       

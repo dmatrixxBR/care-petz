@@ -1,5 +1,7 @@
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Agenda } from 'src/app/models/agenda';
+import { LocalStorageAgendaService } from 'src/app/services/local-storage-agenda.service';
 
 @Component({
   selector: 'app-form-agenda-list-page',
@@ -8,10 +10,15 @@ import { Router } from '@angular/router';
 })
 export class FormAgendaListPageComponent implements OnInit {
 
+  agendas :Agenda[];
   title ='Lista Agenda';
   @Output() activate = new EventEmitter<any>();
-  constructor(private router: Router){
-    this.activate.emit(this.title);
+  constructor( private route: ActivatedRoute,
+               private router: Router,
+               private localStorageAgenda: LocalStorageAgendaService ){
+    
+                this.activate.emit(this.title);
+                this.agendas = localStorageAgenda.getData();
   }
 
   ngOnInit(): void {}
@@ -24,4 +31,9 @@ export class FormAgendaListPageComponent implements OnInit {
   onButtonAgendaClick(event: Event) {
     this.router.navigate(['/petz/agenda']);
   }
+
+  onClickItem(agenda:Agenda){
+    this.router.navigate(['/petz/agenda',agenda.codigoAgenda]);    
+  }
+
 }
