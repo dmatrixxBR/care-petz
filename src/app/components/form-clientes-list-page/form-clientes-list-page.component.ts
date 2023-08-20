@@ -1,5 +1,7 @@
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/models/cliente';
+import { LocalStorageClienteService } from 'src/app/services/local-storage-cliente.service';
 
 @Component({
   selector: 'app-form-clientes-list-page',
@@ -8,10 +10,15 @@ import { Router } from '@angular/router';
 })
 export class FormClientesListPageComponent implements OnInit {
 
+  clientes: Cliente[];
   title : string = 'Lista Clientes';
   @Output() activate = new EventEmitter<string>();
-  constructor(private router: Router){
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private localStorageCliente:LocalStorageClienteService){
     this.activate.emit(this.title);
+    this.clientes = localStorageCliente.getData();
   }
 
   ngOnInit(): void {}

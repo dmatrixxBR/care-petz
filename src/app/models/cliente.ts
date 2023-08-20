@@ -6,8 +6,8 @@ export class Cliente {
     public celularCliente! : string;
     public emailCliente!:string;
 
-    
 constructor(){}
+
 }
 
 

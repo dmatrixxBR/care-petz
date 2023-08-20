@@ -3,6 +3,9 @@ export class Servico {
     public codigoServico: string = uuid();
     public descricaoServico! : string;
     public valorServico!: number;  
+        
     constructor(){}
+
+
 
 }
