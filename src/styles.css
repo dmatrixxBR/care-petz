@@ -177,6 +177,10 @@
         color: #FFFFFF;          
     }     
 
+    .input-field select {          
+      z-index: 999999;         
+  } 
+
     .input-field input:focus  {
       background-color: #45B4BB;
       border-color: #ffffff;

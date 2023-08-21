@@ -16,6 +16,7 @@ import { FormClientesListPageComponent } from './components/form-clientes-list-p
 import { FormAgendaPageComponent } from './components/form-agenda-page/form-agenda-page.component';
 import { FormAgendaListPageComponent } from './components/form-agenda-list-page/form-agenda-list-page.component';
 import { registerLocaleData } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(ptBr);
 
@@ -35,6 +36,7 @@ registerLocaleData(ptBr);
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
   ],

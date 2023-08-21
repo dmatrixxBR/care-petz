@@ -34,7 +34,7 @@
             </div>
         </div> 
         <div class="row">
-            <div class="input-field col s3">
+            <div>
               <input 
                 id="clienteAgenda" 
                 type="text" 
@@ -46,16 +46,20 @@
             </div>
         </div> 
         <div class="row">
-            <div class="input-field col s3">
-              <input 
-                id="servicoAgenda" 
-                type="text" 
-                class="validate"
-                [(ngModel)]="this.agenda.servicoAgenda" 
-                name="servicoAgenda"
-                >
-              <label for="servicoAgenda">Servico</label>
-            </div>
+          <span *ngFor="let servico of servicos" > {{servico.descricaoServico}}</span>
+        </div>  
+
+        <div class="row">            
+           <div class="browser-default">
+            <select 
+              id="servicoAgenda"                 
+              class="browser-default"
+              [(ngModel)]="agenda.servicoAgenda" 
+              name="servicoAgenda">               
+              <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>
+            </select >
+             <label for="servicoAgenda">Serviço</label>
+           </div>
         </div>
         <div class="row">
             <div class="input-field col s3">

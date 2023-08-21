@@ -16,6 +16,21 @@ export class LocalStorageServicoService {
     return data ? (JSON.parse(data) as Servico[]) : [];
   }
 
+  getDataAssinc(): Promise<Servico[]> {
+    const data = localStorage.getItem(this.storageKey);
+    if (data) {
+      try {
+        const parsedData = JSON.parse(data) as Servico[];
+        return Promise.resolve(parsedData);
+      } catch (error) {
+        return Promise.reject(new Error('Erro ao fazer parse dos dados armazenados.'));
+      }
+    } else {
+      return Promise.resolve([]);
+    }
+  }
+  
+
   setData(data: Servico[]): void {
     localStorage.setItem(this.storageKey, JSON.stringify(data));
   }
