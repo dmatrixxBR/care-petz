@@ -47,12 +47,17 @@ export class LocalStorageServicoService {
     return registroFiltered[0] ?? [];
   }
 
-  update(index: number, newItem: Servico): void {
+  update(newItem: Servico): void {
     const data = this.getData();
-    data[index] = newItem;
-    this.setData(data);
+    const existingIndex = data.findIndex(servico => servico.codigoServico === newItem.codigoServico);
+    
+    if (existingIndex !== -1) {
+      data[existingIndex] = newItem;
+      this.setData(data);
+    } else {
+      console.error('Serviço not found for update:', newItem.codigoServico);
+    }
   }
-
   delete(index: number): void {
     const data = this.getData();
     data.splice(index, 1);

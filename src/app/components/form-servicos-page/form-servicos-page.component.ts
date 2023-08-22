@@ -36,10 +36,23 @@ export class FormServicosPageComponent implements OnInit {
       this.servico = new Servico();
     }
     
-    onSubmit():void{}
+    onSubmit():void{
+      this.saveServico();
+      this.router.navigate(['/petz/servicos/lista']);
+    }
 
     onMenuClick(event:Event) {
       this.router.navigate(['/petz/servicos/lista']);
+    }
+
+    saveServico(){
+      if (!this.localStorageServico.isExistServico(this.servico.codigoServico)) {
+          this.localStorageServico.create(this.servico);      
+      }  else {
+        this.localStorageServico.update(this.servico);
+      } 
+      M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
+      this.form.reset();
     }
 
 }

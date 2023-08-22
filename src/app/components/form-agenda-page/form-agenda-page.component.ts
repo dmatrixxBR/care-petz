@@ -19,7 +19,7 @@ export class FormAgendaPageComponent implements OnInit {
   agenda!:Agenda;
   clientes!:Cliente[];
   servicos!:Servico[];
-
+  agendas!:Agenda[];
 
   title ='Agenda';
 
@@ -40,6 +40,7 @@ export class FormAgendaPageComponent implements OnInit {
     this.setEmptyAgenda();
     this.loadClientList();
     this.loadServiceList();
+    this.loadAgendaList();
     let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
         M.toast({html: `Parametro Passado na Agenda ` + idParam,displayLength: 1500, classes:'green'});
@@ -82,6 +83,12 @@ export class FormAgendaPageComponent implements OnInit {
     this.servicos = this.localStorageServico.getData();
     //.then(data => this.servicos = data);
     console.log(this.servicos);
+  }
+
+  loadAgendaList(){
+    this.agendas = this.localStorageAgenda.getData();
+    //.then(data => this.servicos = data);
+    console.log(this.agendas);
   }
 
   compareWith(object1: any, object2: any): boolean {
