@@ -20,7 +20,7 @@ https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=
 - [x] Construir páginas web com o conceito de componentes.
 - [x] Criar o layout da aplicação com componentes, ou seja, o cabeçalho e rodapé precisam ser componentes.
 - [x] Usar pelo menos dois tipos de data-binding (Interpolation, Property Binding, Event Binding e Two Way Data Binding).
-- [X ] Passar dados via hierarquia de componentes, ou seja, usando @Input ou @Output. 
+- [X] Passar dados via hierarquia de componentes, ou seja, usando @Input ou @Output. 
 - [X] Mapear componentes ? rotas no módulo de rotas.
 - [X] Criar navegação entre páginas por meio de rotas.
 - [X] Passar dados entre componentes que representam diferentes telas via parâmetros de rotas. 
