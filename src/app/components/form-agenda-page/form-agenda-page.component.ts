@@ -85,8 +85,9 @@ export class FormAgendaPageComponent implements OnInit {
   }
 
   compareWith(object1: any, object2: any): boolean {
-    return object1?.id === object2?.id;
-}
+    return object1 && object2 ?  object1.id === object2.id : object1 === object2 ;
+           
+  }
  updateValorServico() {
   const servicoSelecionado = this.agenda.servicoAgenda;
 

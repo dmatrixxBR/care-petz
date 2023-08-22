@@ -40,7 +40,9 @@
               id="clienteAgenda"                 
               class="browser-default"
               [(ngModel)]="agenda.clienteAgenda" 
-              name="clienteAgenda">               
+              name="clienteAgenda"
+              [compareWith]="compareWith"
+              >                             
               <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{ cliente.nomeCliente }}</option>
             </select >
              <label for="clienteAgenda">Cliente</label>
@@ -52,7 +54,9 @@
              id="servicoAgenda"                 
              class="browser-default"
              [(ngModel)]="agenda.servicoAgenda" 
-             name="servicoAgenda">               
+             name="servicoAgenda"
+             [compareWith]="compareWith"
+             >               
              <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>
            </select >
             <label for="servicoAgenda">Serviço</label>

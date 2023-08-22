@@ -36,10 +36,23 @@ export class FormClientesPageComponent implements OnInit {
       this.cliente = new Cliente();
     }
     
-    onSubmit():void{}
+    onSubmit():void{
+      this.saveCliente();
+      this.router.navigate(['/petz/clientes/lista']);
+    }
 
     onMenuClick(event:Event) {
       this.router.navigate(['/petz/clientes/lista']);
+    }
+
+    saveCliente(){
+      if (!this.localStorageClienteService.isExistCliente(this.cliente.codigoCliente)) {
+          this.localStorageClienteService.create(this.cliente);      
+      }  else {
+        this.localStorageClienteService.update(this.cliente);
+      } 
+      M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
+      this.form.reset();
     }
 
 }

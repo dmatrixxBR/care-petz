@@ -32,11 +32,18 @@ export class LocalStorageClienteService {
     return registroFiltered[0] ?? [];
   }
 
-  update(index: number, newItem: Cliente): void {
+  update(newItem: Cliente): void {
     const data = this.getData();
-    data[index] = newItem;
-    this.setData(data);
+    const existingIndex = data.findIndex(cliente => cliente.codigoCliente === newItem.codigoCliente);
+    
+    if (existingIndex !== -1) {
+      data[existingIndex] = newItem;
+      this.setData(data);
+    } else {
+      console.error('Cliente not found for update:', newItem.codigoCliente);
+    }
   }
+
 
   delete(index: number): void {
     const data = this.getData();
