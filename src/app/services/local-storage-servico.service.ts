@@ -85,4 +85,10 @@ export class LocalStorageServicoService {
     
   }
 
+  isExistServico(id: string): boolean {
+    const data = this.getData();
+    const existingServico = data.find(servico => servico.codigoServico === id);
+    return !!existingServico;
+  }
+
 }

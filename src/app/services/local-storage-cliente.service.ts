@@ -70,5 +70,11 @@ export class LocalStorageClienteService {
     this.setData(clientes);
     
   }
+
+  isExistCliente(id: string): boolean {
+    const data = this.getData();
+    const existingCliente = data.find(cliente => cliente.codigoCliente === id);
+    return !!existingCliente;
+  }
   
 }

@@ -31,10 +31,16 @@ export class LocalStorageAgendaService {
     return registroFiltered[0] ?? [];
   }
 
-  update(index: number, newItem: Agenda): void {
+  update(newItem: Agenda): void {
     const data = this.getData();
-    data[index] = newItem;
-    this.setData(data);
+    const existingIndex = data.findIndex(agenda => agenda.codigoAgenda === newItem.codigoAgenda);
+    
+    if (existingIndex !== -1) {
+      data[existingIndex] = newItem;
+      this.setData(data);
+    } else {
+      console.error('Agenda not found for update:', newItem.codigoAgenda);
+    }
   }
 
   delete(index: number): void {
@@ -51,4 +57,9 @@ export class LocalStorageAgendaService {
       
   }
 
+  isExistAgenda(id: string): boolean {
+    const data = this.getData();
+    const existingAgenda = data.find(agenda => agenda.codigoAgenda === id);
+    return !!existingAgenda;
+  }
 }

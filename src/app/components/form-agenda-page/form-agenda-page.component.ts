@@ -64,8 +64,8 @@ export class FormAgendaPageComponent implements OnInit {
   }
   
   onSubmit():void{
-    this.localStorageAgenda.create(this.agenda); 
-    M.toast({html: `Agendamento Salvo com sucesso!`,displayLength: 1500, classes:'green'}); 
+
+    this.saveAgenda(); 
     this.router.navigate(['/petz/agenda/lista']);
   }
 
@@ -93,6 +93,16 @@ export class FormAgendaPageComponent implements OnInit {
   if (servicoSelecionado) {
     this.agenda.valorServico = servicoSelecionado.valorServico;
   }
+}
+
+saveAgenda(){
+  if (!this.localStorageAgenda.isExistAgenda(this.agenda.codigoAgenda)) {
+      this.localStorageAgenda.create(this.agenda);      
+  }  else {
+    this.localStorageAgenda.update(this.agenda);
+  } 
+  M.toast({html: `Agendamento Salvo com sucesso!`,displayLength: 1500, classes:'green'});
+  this.form.reset();
 }
 
 }

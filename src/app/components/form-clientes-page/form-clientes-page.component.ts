@@ -22,7 +22,7 @@ export class FormClientesPageComponent implements OnInit {
     this.activate.emit(this.title);    
   }
 
-    ngOnInit():void{
+    ngOnInit():void {
       M.AutoInit();
       this.setEmptyCliente();
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
