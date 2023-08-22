@@ -47,17 +47,17 @@
            </div> 
         </div>
         <div class="row">            
-           <div class="browser-default">
-            <select 
-              id="servicoAgenda"                 
-              class="browser-default"
-              [(ngModel)]="agenda.servicoAgenda" 
-              name="servicoAgenda">               
-              <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>
-            </select >
-             <label for="servicoAgenda">Serviço</label>
-           </div>
-        </div>
+          <div class="browser-default">
+           <select 
+             id="servicoAgenda"                 
+             class="browser-default"
+             [(ngModel)]="agenda.servicoAgenda" 
+             name="servicoAgenda">               
+             <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>
+           </select >
+            <label for="servicoAgenda">Serviço</label>
+          </div>
+       </div>
         <div class="row">
             <div class="input-field col s3">
               <input 
@@ -76,8 +76,10 @@
                                 name="backtomenu"
                                 (click)="this.onMenuClick($event)">voltar para lista <i class="material-icons right">arrow_back</i>
             </button></div>
-            <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" name="action">Gravar 
-              <i class="material-icons right">send</i>
+            <div class="col s6"><button 
+                                class="btn waves-effect waves-green btn-large full-width" 
+                                type="submit" 
+                                name="action">Gravar<i class="material-icons right">send</i>
              </button></div>
            
         </div>       

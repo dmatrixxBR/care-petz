@@ -27,7 +27,7 @@ export class FormServicosPageComponent implements OnInit {
       this.title = 'Serviços';
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
-        alert('tem parametro de serviço - '+  idParam);
+        M.toast({html: `Parametro Passado no Serviço ` + idParam,displayLength: 1500, classes:'green'});
         this.servico = this.localStorageServico.getById(idParam);
       }
     }

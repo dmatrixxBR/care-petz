@@ -27,7 +27,7 @@ export class FormClientesPageComponent implements OnInit {
       this.setEmptyCliente();
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
-        alert('tem parametro de cliente - '+  idParam);
+        M.toast({html: `Parametro Passado no Cliente ` + idParam,displayLength: 1500, classes:'green'});
         this.cliente = this.localStorageClienteService.getById(idParam);
       }
     }

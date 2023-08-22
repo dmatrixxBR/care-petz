@@ -70,16 +70,16 @@ export class LocalStorageServicoService {
     const servicos : Servico[] =[
       {codigoServico: uuid(),
        descricaoServico:'PETZ CARE',
-      valorServico:20.00},
+      valorServico:25.00},
       {codigoServico: uuid(),
         descricaoServico:'PETZ DELIVERY',
-       valorServico:100.00},
+       valorServico:40.00},
        {codigoServico: uuid(),
         descricaoServico:'PETZ HOTEL',
-       valorServico:20.00},
+       valorServico:50.00},
        {codigoServico: uuid(),
         descricaoServico:'PETZ VETZ',
-       valorServico:20.00}
+       valorServico:150.00}
     ];
     this.setData(servicos);
     

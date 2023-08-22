@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,ViewChild,EventEmitter } from '@angular/core';
+import { Component, OnInit,Output,ViewChild,EventEmitter,AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageAgendaService } from 'src/app/services/local-storage-agenda.service';
@@ -42,20 +42,32 @@ export class FormAgendaPageComponent implements OnInit {
     this.loadServiceList();
     let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
-        alert('tem parametro agenda - '+  idParam);
+        M.toast({html: `Parametro Passado na Agenda ` + idParam,displayLength: 1500, classes:'green'});
         this.agenda = this.localStorageAgenda.getById(idParam);
         
       }
       M.AutoInit(); 
-      M.FormSelect.init(document.querySelectorAll('select'));
-      
+
+      const servicoSelect = document.getElementById('servicoAgenda') as HTMLSelectElement;
+      servicoSelect.addEventListener('change', () => {
+      this.updateValorServico();
+    });
+  }
+
+  ngAfterViewInit(){
+    var elements = document.querySelectorAll('select');
+    M.FormSelect.init(elements,{});
   }
 
   setEmptyAgenda() {
     this.agenda = new Agenda();
   }
   
-  onSubmit():void{}
+  onSubmit():void{
+    this.localStorageAgenda.create(this.agenda); 
+    M.toast({html: `Agendamento Salvo com sucesso!`,displayLength: 1500, classes:'green'}); 
+    this.router.navigate(['/petz/agenda/lista']);
+  }
 
   onMenuClick(event:Event) {
     this.router.navigate(['/petz/agenda/lista']);
@@ -69,12 +81,18 @@ export class FormAgendaPageComponent implements OnInit {
   loadServiceList(){
     this.servicos = this.localStorageServico.getData();
     //.then(data => this.servicos = data);
-     
     console.log(this.servicos);
   }
 
   compareWith(object1: any, object2: any): boolean {
     return object1?.id === object2?.id;
+}
+ updateValorServico() {
+  const servicoSelecionado = this.agenda.servicoAgenda;
+
+  if (servicoSelecionado) {
+    this.agenda.valorServico = servicoSelecionado.valorServico;
+  }
 }
 
 }
