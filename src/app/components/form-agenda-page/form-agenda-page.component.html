@@ -33,22 +33,19 @@
               <label for="horaAgenda">Hora Agendamento</label>
             </div>
         </div> 
-        <div class="row">
-            <div>
-              <input 
-                id="clienteAgenda" 
-                type="text" 
-                class="validate"
-                [(ngModel)]="this.agenda.clienteAgenda" 
-                name="clienteAgenda"
-                >
-              <label for="clienteAgenda">Cliente</label>
-            </div>
-        </div> 
-        <div class="row">
-          <span *ngFor="let servico of servicos" > {{servico.descricaoServico}}</span>
-        </div>  
 
+        <div class="row" >            
+           <div class="browser-default">
+            <select 
+              id="clienteAgenda"                 
+              class="browser-default"
+              [(ngModel)]="agenda.clienteAgenda" 
+              name="clienteAgenda">               
+              <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{ cliente.nomeCliente }}</option>
+            </select >
+             <label for="clienteAgenda">Cliente</label>
+           </div> 
+        </div>
         <div class="row">            
            <div class="browser-default">
             <select 
