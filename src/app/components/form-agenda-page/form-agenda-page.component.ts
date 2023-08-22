@@ -47,6 +47,7 @@ export class FormAgendaPageComponent implements OnInit {
         
       }
       M.AutoInit(); 
+      M.FormSelect.init(document.querySelectorAll('select'));
       
   }
 
