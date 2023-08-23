@@ -58,10 +58,18 @@ export class LocalStorageServicoService {
       console.error('Serviço not found for update:', newItem.codigoServico);
     }
   }
-  delete(index: number): void {
+
+  delete(item:Servico): boolean {
     const data = this.getData();
-    data.splice(index, 1);
-    this.setData(data);
+    const existingIndex = data.findIndex( servico => servico.codigoServico === item.codigoServico);
+    if (existingIndex !== -1){
+      data.splice(existingIndex, 1);
+      this.setData(data);
+      return true;
+    } else {
+      console.error('Serviço not found for delete:', item.codigoServico);
+      return false;
+    }    
   }
 
   hasRecords(): boolean {

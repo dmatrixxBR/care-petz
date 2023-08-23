@@ -36,4 +36,19 @@ export class FormClientesListPageComponent implements OnInit {
     this.router.navigate(['/petz/clientes',cliente.codigoCliente]);    
   }
 
+  onClickItemDelete(cliente:Cliente){
+    let confirmation = window.confirm('Excluir Registro?' + cliente.codigoCliente);
+    if (!confirmation) {
+      return
+    }
+    let response : boolean = this.localStorageCliente.delete(cliente);
+    if (response) {
+      M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
+      this.clientes = this.localStorageCliente.getData();
+    }
+
+    
+  }
+
+
 }

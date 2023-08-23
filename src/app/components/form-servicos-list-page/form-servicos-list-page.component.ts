@@ -33,5 +33,18 @@ export class FormServicosListPageComponent implements OnInit {
     this.router.navigate(['/petz/servicos',servico.codigoServico]);    
   }
 
+  onClickItemDelete(servico:Servico){
+    let confirmation = window.confirm('Excluir Registro?' + servico.codigoServico);
+    if (!confirmation) {
+      return
+    }
+    let response : boolean = this.localStorageServicosService.delete(servico);
+    if (response) {
+      M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
+      this.servicos = this.localStorageServicosService.getData();
+    }
+
+    
+  }
 
 }

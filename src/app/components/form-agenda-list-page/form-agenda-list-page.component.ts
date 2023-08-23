@@ -36,4 +36,18 @@ export class FormAgendaListPageComponent implements OnInit {
     this.router.navigate(['/petz/agenda',agenda.codigoAgenda]);    
   }
 
+  onClickItemDelete(agenda:Agenda){
+    let confirmation = window.confirm('Excluir Registro?' + agenda.codigoAgenda);
+    if (!confirmation) {
+      return
+    }
+    let response : boolean = this.localStorageAgenda.delete(agenda);
+    if (response) {
+      M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
+      this.agendas = this.localStorageAgenda.getData();
+    }
+
+    
+  }
+
 }

@@ -43,10 +43,17 @@ export class LocalStorageAgendaService {
     }
   }
 
-  delete(index: number): void {
+  delete(item:Agenda): boolean {
     const data = this.getData();
-    data.splice(index, 1);
-    this.setData(data);
+    const existingIndex = data.findIndex( agenda => agenda.codigoAgenda  === item.codigoAgenda);
+    if (existingIndex !== -1){
+      data.splice(existingIndex, 1);
+      this.setData(data);
+      return true;
+    } else {
+      console.error('Agenda not found for delete:', item.codigoAgenda);
+      return false;
+    }    
   }
 
   hasRecords(): boolean {
