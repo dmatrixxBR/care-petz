@@ -35,13 +35,15 @@
         </div> 
 
         <div class="row" >            
-           <div >
+           <div class="input-field col s6">
             <select 
               id="clienteAgenda"                 
-              class="browser-default"
+              
               [(ngModel)]="agenda.clienteAgenda" 
+              #state="ngModel"
+              #clientSelect
               name="clienteAgenda"
-              [compareWith]="compareWith"
+              [compareWith]="compareWithClients"
               >                             
               <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{ cliente.nomeCliente }}</option>
             </select >
@@ -49,13 +51,14 @@
            </div> 
         </div>
         <div class="row">            
-          <div class="browser-default">
+          <div class="input-field col s6">
            <select 
              id="servicoAgenda"                 
-             class="browser-default"
-             [(ngModel)]="agenda.servicoAgenda" 
+             [(ngModel)]="agenda.servicoAgenda"
+             #state="ngModel"
+             #serviceSelect 
              name="servicoAgenda"
-             [compareWith]="compareWith"
+             [compareWith]="compareWithServices"
              >               
              <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>
            </select >

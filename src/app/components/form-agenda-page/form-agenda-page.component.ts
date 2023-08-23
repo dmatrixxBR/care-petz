@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,ViewChild,EventEmitter,AfterViewInit } from '@angular/core';
+import { Component, OnInit,Output,ViewChild,EventEmitter,AfterViewInit, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageAgendaService } from 'src/app/services/local-storage-agenda.service';
@@ -16,6 +16,9 @@ import * as M from 'materialize-css';
 })
 export class FormAgendaPageComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
+  @ViewChild('clientSelect') clientSelect!: ElementRef;
+  @ViewChild('serviceSelect') serviceSelect!: ElementRef;
+
   agenda!:Agenda;
   clientes!:Cliente[];
   servicos!:Servico[];
@@ -77,12 +80,19 @@ export class FormAgendaPageComponent implements OnInit {
   loadClientList(){
    this.clientes = this.localStorageCliente.getData();
    console.log(this.clientes);
+   setTimeout(()=> {
+    M.FormSelect.init(this.clientSelect.nativeElement);
+   },100);
+
   }
   
   loadServiceList(){
     this.servicos = this.localStorageServico.getData();
     //.then(data => this.servicos = data);
     console.log(this.servicos);
+    setTimeout(()=> {
+      M.FormSelect.init(this.serviceSelect.nativeElement);
+     },100);
   }
 
   loadAgendaList(){
@@ -91,10 +101,16 @@ export class FormAgendaPageComponent implements OnInit {
     console.log(this.agendas);
   }
 
-  compareWith(object1: any, object2: any): boolean {
-    return object1 && object2 ?  object1.id === object2.id : object1 === object2 ;
+  compareWithClients(object1: Cliente, object2: Cliente): boolean {
+    return object1 && object2 ?  object1.codigoCliente === object2.codigoCliente : object1 === object2 ;
            
   }
+
+  compareWithServices(object1: Servico, object2: Servico): boolean {
+    return object1 && object2 ?  object1.codigoServico === object2.codigoServico : object1 === object2 ;
+           
+  }
+
  updateValorServico() {
   const servicoSelecionado = this.agenda.servicoAgenda;
 
