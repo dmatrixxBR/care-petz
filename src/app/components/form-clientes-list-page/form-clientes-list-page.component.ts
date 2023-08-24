@@ -10,7 +10,8 @@ import { LocalStorageClienteService } from 'src/app/services/local-storage-clien
 })
 export class FormClientesListPageComponent implements OnInit {
 
-  clientes: Cliente[];
+  clientes!: Cliente[];
+  clientesCounter:number = 0;
   title : string = 'Lista Clientes';
   @Output() activate = new EventEmitter<string>();
 
@@ -18,7 +19,7 @@ export class FormClientesListPageComponent implements OnInit {
               private router: Router,
               private localStorageCliente:LocalStorageClienteService){
     this.activate.emit(this.title);
-    this.clientes = localStorageCliente.getData();
+    this.getData();
   }
 
   ngOnInit(): void {}
@@ -44,10 +45,13 @@ export class FormClientesListPageComponent implements OnInit {
     let response : boolean = this.localStorageCliente.delete(cliente);
     if (response) {
       M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
-      this.clientes = this.localStorageCliente.getData();
-    }
+      this.getData();
+    }    
+  }
 
-    
+  getData(){
+    this.clientes = this.localStorageCliente.getData();
+    this.clientesCounter = this.clientes.length;
   }
 
 

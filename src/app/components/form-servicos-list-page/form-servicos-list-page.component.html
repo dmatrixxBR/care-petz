@@ -1,6 +1,11 @@
 <div class="body-page">
+  <div class="row alert" *ngIf="servicosCounter === 0">
+    <div class="col s12 text-footer">
+      <div>Sem serviços Registrados!</div>
+    </div>
+  </div> 
     <div class="body-list">
-        <table class="striped">
+        <table class="striped" *ngIf="servicosCounter > 0">
             <thead>
               <tr>
                   <th>Código</th>

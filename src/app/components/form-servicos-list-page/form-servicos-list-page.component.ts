@@ -9,14 +9,15 @@ import { LocalStorageServicoService } from 'src/app/services/local-storage-servi
   styleUrls: ['./form-servicos-list-page.component.css']
 })
 export class FormServicosListPageComponent implements OnInit {
-  servicos: Servico[];
+  servicos!: Servico[];
+  servicosCounter:number=0;
   title ='Lista Serviços';
   @Output() activate = new EventEmitter<any>();
   
   constructor(private router: Router,
-              private localStorageServicosService: LocalStorageServicoService){
-    this.servicos = this.localStorageServicosService.getData();            
+              private localStorageServicosService: LocalStorageServicoService){                
     this.activate.emit(this.title);
+    this.getData();
   }
   ngOnInit(): void {}
 
@@ -41,10 +42,13 @@ export class FormServicosListPageComponent implements OnInit {
     let response : boolean = this.localStorageServicosService.delete(servico);
     if (response) {
       M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
-      this.servicos = this.localStorageServicosService.getData();
-    }
+      this.getData();
+    }    
+  }
 
-    
+  getData(){
+    this.servicos = this.localStorageServicosService.getData();
+    this.servicosCounter = this.servicos.length;
   }
 
 }

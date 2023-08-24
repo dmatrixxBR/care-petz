@@ -10,7 +10,8 @@ import { LocalStorageAgendaService } from 'src/app/services/local-storage-agenda
 })
 export class FormAgendaListPageComponent implements OnInit {
 
-  agendas :Agenda[];
+  agendas! :Agenda[];
+  agendasCounter: number = 0;
   title ='Lista Agenda';
   @Output() activate = new EventEmitter<any>();
   constructor( private route: ActivatedRoute,
@@ -18,7 +19,7 @@ export class FormAgendaListPageComponent implements OnInit {
                private localStorageAgenda: LocalStorageAgendaService ){
     
                 this.activate.emit(this.title);
-                this.agendas = localStorageAgenda.getData();
+                this.getData();
   }
 
   ngOnInit(): void {}
@@ -44,10 +45,15 @@ export class FormAgendaListPageComponent implements OnInit {
     let response : boolean = this.localStorageAgenda.delete(agenda);
     if (response) {
       M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
-      this.agendas = this.localStorageAgenda.getData();
-    }
-
+      this.getData();
+    }   
     
   }
+
+    getData(){
+    this.agendas = this.localStorageAgenda.getData();
+    this.agendasCounter = this.agendas.length;
+  }
+
 
 }

@@ -1,6 +1,11 @@
 <div class="body-page">
-    <div class="body-list">
-        <table class="striped">
+  <div class="row alert" *ngIf="agendasCounter === 0">
+    <div class="col s12 text-footer">
+      <div>Sem agendamentos Registrados!</div>
+    </div>
+  </div> 
+    <div class="body-list" >
+        <table class="striped" *ngIf="agendasCounter > 0" >
             <thead>
               <tr>
                   <th>Código</th>
