@@ -8,7 +8,11 @@
                type="text" 
                disabled="true"
                class="validate"
-               [(ngModel)]="this.agenda.codigoAgenda" name="codigoAgenda">
+               [(ngModel)]="this.agenda.codigoAgenda" 
+               name="codigoAgenda"
+               #codigoagenda="ngModel"
+               required
+               >
               <label for="codigoAgenda">Código Agendamento</label>
             </div>
             <div class="input-field col s3">
@@ -18,8 +22,14 @@
                 class="validate"
                 [(ngModel)]="this.agenda.dataAgenda" 
                 name="dataAgenda"
+                pattern="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$"
+                #dataagenda="ngModel"
+                required
                 >
               <label for="dataAgenda">Data Agendamento</label>
+              <div class="red-text" [hidden]="dataagenda.valid || dataagenda.untouched">
+                Por favor informe uma data válida no formato dd/mm/aaaa
+              </div>
             </div>
         
             <div class="input-field col s3">
@@ -29,40 +39,55 @@
                 class="validate"
                 [(ngModel)]="this.agenda.horaAgenda" 
                 name="horaAgenda"
+                pattern="^([01][0-9]|2[0-3]):([0-5][0-9])$"
+                #horaagenda="ngModel"
+                required
                 >
               <label for="horaAgenda">Hora Agendamento</label>
+              <div class="red-text" [hidden]="horaagenda.valid || horaagenda.untouched">
+                Por favor informe uma hora válida
+              </div>
             </div>
         </div> 
 
         <div class="row" >            
            <div class="input-field col s6">
+            <label for="clienteAgenda">Cliente</label>
             <select 
-              id="clienteAgenda"                 
-              
+              id="clienteAgenda"     
+              class="validate"                          
               [(ngModel)]="agenda.clienteAgenda" 
-              #state="ngModel"
+              #clientselect="ngModel"
               #clientSelect
               name="clienteAgenda"
               [compareWith]="compareWithClients"
+              required
               >                             
               <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{ cliente.nomeCliente }}</option>
             </select >
-             <label for="clienteAgenda">Cliente</label>
+             <div class="red-text" [hidden] = "clientselect.valid || clientselect.untouched">
+              Por favor informar o cliente
+             </div>
            </div> 
         </div>
         <div class="row">            
           <div class="input-field col s6">
+            <label for="servicoAgenda">Serviço</label>
            <select 
-             id="servicoAgenda"                 
+             id="servicoAgenda"
+             class="validate"                 
              [(ngModel)]="agenda.servicoAgenda"
-             #state="ngModel"
+             #serviceselect="ngModel"
              #serviceSelect 
              name="servicoAgenda"
              [compareWith]="compareWithServices"
+             required
              >               
              <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>
            </select >
-            <label for="servicoAgenda">Serviço</label>
+           <div class="red-text" [hidden] = "serviceselect.valid || serviceselect.untouched">
+            Por favor informar o servico
+           </div>            
           </div>
        </div>
         <div class="row">
@@ -72,9 +97,15 @@
                 type="number" 
                 class="validate"
                 [(ngModel)]="this.agenda.valorServico" 
+                pattern="^(?!0\.00$)(?!0$)\d+(\.\d{2})?$"
                 name="valorServico"
+                #valorservico="ngModel"
+                required
                 >
               <label for="valorServico">Valor</label>
+              <div class="red-text" [hidden] = "valorservico.valid || valorservico.untouched">
+                Por favor informar o valor corretamnete!
+               </div>
             </div>
         </div>
         <div class="row">              
@@ -86,6 +117,7 @@
             <div class="col s6"><button 
                                 class="btn waves-effect waves-green btn-large full-width" 
                                 type="submit" 
+                                [disabled]="!form.valid"
                                 name="action">Gravar<i class="material-icons right">send</i>
              </button></div>
            

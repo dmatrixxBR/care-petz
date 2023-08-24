@@ -8,7 +8,10 @@
            type="text"
            disabled="true" 
            class="validate"
-           [(ngModel)]="this.servico.codigoServico" name="codigoServico">
+           [(ngModel)]="this.servico.codigoServico" 
+           #codigoservico="ngModel"
+           name="codigoServico"
+           required>
           <label for="codigoServico">Código Serviço</label>
         </div>
     </div>
@@ -20,8 +23,14 @@
             class="validate"
             [(ngModel)]="this.servico.descricaoServico" 
             name="descricaoServico"
+            #descricao="ngModel"
+            pattern="^.{5,}$"
+            required
             >
           <label for="descricaoServico">Descrição</label>
+          <div class="red-text" [hidden]="descricao.valid || descricao.untouched">
+            A descrição do serviço precisa ter mais de 5 caracteres
+          </div>
         </div>
     </div>
     <div class="row">
@@ -32,8 +41,14 @@
             class="validate"
             [(ngModel)]="this.servico.valorServico" 
             name="valorServico"
+            #valorservico="ngModel"
+            pattern="^(?!0\.00$)(?!0$)\d+(\.\d{2})?$"
+            required
             >
           <label for="valorServico">Valor do Serviço</label>
+          <div class="red-text" [hidden] = "valorservico.valid || valorservico.untouched">
+            Por favor informar o valor corretamnete!
+          </div>
         </div>
     </div> 
     <div class="row">              
@@ -42,7 +57,9 @@
                             name="backtomenu"
                             (click)="this.onMenuClick($event)">voltar para lista <i class="material-icons right">arrow_back</i>
         </button></div>
-        <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" name="action">Gravar 
+        <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" 
+          name="action"
+          [disabled]="!form.valid">Gravar 
           <i class="material-icons right">send</i>
          </button></div>
        

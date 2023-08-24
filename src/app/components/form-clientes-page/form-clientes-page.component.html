@@ -7,8 +7,11 @@
                id="codigoCliente" 
                type="text" 
                disabled="true"
-               class="validate"
-               [(ngModel)]="this.cliente.codigoCliente" name="codigoCliente">
+               class="validate"               
+               [(ngModel)]="this.cliente.codigoCliente"
+               #codigocliente="ngModel" 
+               name="codigoCliente"               
+               required>
               <label for="codigoCliente">Código Cliente</label>
             </div>
         </div>
@@ -18,10 +21,17 @@
                 id="nomeCliente" 
                 type="text" 
                 class="validate"
-                [(ngModel)]="this.cliente.nomeCliente" 
+                [(ngModel)]="this.cliente.nomeCliente"
+                #nomecliente="ngModel"
+                pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+" 
                 name="nomeCliente"
+                required
                 >
               <label for="nomeCliente">Nome</label>
+              <div class="red-text" [hidden]="nomecliente.valid || nomecliente.untouched">
+                Por favor, informe o seu nome completo.
+              </div>              
+
             </div>
         </div>
         <div class="row">
@@ -30,10 +40,16 @@
                 id="celularCliente" 
                 type="text" 
                 class="validate"
-                [(ngModel)]="this.cliente.celularCliente" 
+                [(ngModel)]="this.cliente.celularCliente"
+                #celularcliente="ngModel"
+                pattern="^\(\d{2}\) \d{5}-\d{4}$" 
                 name="celularCliente"
+                required
                 >
               <label for="celularCliente">Celular</label>
+              <div class="red-text" [hidden]="celularcliente.valid || celularcliente.untouched">
+                Informe no Formato valido (99) 99999-9999.
+              </div>
             </div>
         </div> 
         <div class="row">
@@ -42,10 +58,16 @@
                 id="emailCliente" 
                 type="text" 
                 class="validate"
-                [(ngModel)]="this.cliente.emailCliente" 
+                [(ngModel)]="this.cliente.emailCliente"
+                #emailcliente="ngModel"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
                 name="emailCliente"
+                required
                 >
               <label for="emailCliente">Email</label>
+              <div class="red-text" [hidden]="emailcliente.valid || emailcliente.untouched">
+                Informe um email valido.
+              </div>
             </div>
         </div> 
         <div class="row">              
@@ -54,7 +76,9 @@
                                 name="backtomenu"
                                 (click)="this.onMenuClick($event)">voltar para lista <i class="material-icons right">arrow_back</i>
             </button></div>
-            <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" name="action">Gravar 
+            <div class="col s6"><button class="btn waves-effect waves-green btn-large full-width" type="submit" 
+              name="action"
+              [disabled]="!form.valid">Gravar 
               <i class="material-icons right">send</i>
              </button></div>
            
