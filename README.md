@@ -20,12 +20,12 @@ https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=
 - [x] Construir páginas web com o conceito de componentes.
 - [x] Criar o layout da aplicação com componentes, ou seja, o cabeçalho e rodapé precisam ser componentes.
 - [x] Usar pelo menos dois tipos de data-binding (Interpolation, Property Binding, Event Binding e Two Way Data Binding).
-- [X] Passar dados via hierarquia de componentes, ou seja, usando @Input ou @Output. 
-- [X] Mapear componentes ? rotas no módulo de rotas.
-- [X] Criar navegação entre páginas por meio de rotas.
-- [X] Passar dados entre componentes que representam diferentes telas via parâmetros de rotas. 
-- [ ] Validar campos do formulário com REGEX e apresentar os erros.
-- [ ] Desabilitar o botão de submit enquanto o formulário está inválido.
+- [x] Passar dados via hierarquia de componentes, ou seja, usando @Input ou @Output. 
+- [x] Mapear componentes ? rotas no módulo de rotas.
+- [x] Criar navegação entre páginas por meio de rotas.
+- [x] Passar dados entre componentes que representam diferentes telas via parâmetros de rotas. 
+- [x] Validar campos do formulário com REGEX e apresentar os erros.
+- [x] Desabilitar o botão de submit enquanto o formulário está inválido.
 - [ ] Fazer requisições a API com tratamento da resposta com Promises ou Observables.
 - [ ] Cadastrar uma entidade no JSON Server.
 - [ ] Apresentar uma lista de dados com a diretiva estrutural ngFor.
