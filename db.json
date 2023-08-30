@@ -1,0 +1,73 @@
+{
+  "servicos": [
+    {
+      "id": 1,
+      "codigoServico": "b965b72d-e43c-478a-b5d3-d77e15a196ae",
+      "descricaoServico": "PETZ CARE",
+      "valorServico": 30.00
+    },
+    {
+      "id": 2,
+      "codigoServico": "9ffc4665-49a6-45ec-b167-6ec629d7f150",
+      "descricaoServico": "PETZ VETZ",
+      "valorServico": 100.00
+    },
+    {
+      "id": 3,
+      "codigoServico": "57246349-3aa0-4574-95d7-b5093ceaf527",
+      "descricaoServico": "PETZ DELIVERY",
+      "valorServico": 20.00
+    },
+    {
+      "id": 4,
+      "codigoServico": "7f458c5f-5b9a-4f0f-a214-ae2dc034fc3f",
+      "descricaoServico": "PETZ HOTEL",
+      "valorServico": 80.00
+    }
+  ],
+
+  "clientes": [
+    {
+      "id": 1,
+      "codigoCliente": "99ba3cac-b666-4813-94a7-9a4304b571fc",
+      "nomeCliente": "John Foo",
+      "celularCliente": "13996786109",
+      "emailCliente": "johnfoo@foo.com.br"
+    },
+    {
+      "id": 2,
+      "codigoCliente": "bf08f5d3-3558-495a-a6ad-16ccda14c569",
+      "nomeCliente": "Mary Jane",
+      "celularCliente": "11995679900",
+      "emailCliente": "jane@gmail.com"
+    },
+    {
+      "id": 3,
+      "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
+      "nomeCliente": "Nencil Blanco",
+      "celularCliente": "21997896789",
+      "emailCliente": "nencil.blanco@gmail.com"
+    }
+  ],
+
+  "agendas": [
+    {
+      "id": "1",
+      "codigoAgenda": "2508dd45-6c18-4220-95e1-ecc3bd26d3d6",
+      "dataAgenda": "28/08/2023",
+      "horaAgenda": "15:30",
+      "clienteAgenda": "1",
+      "servicoAgenda": "1",
+      "valorServico": 50
+    },
+    {
+      "id": "2",
+      "codigoAgenda": "c16cbb53-019a-4122-92a6-0a26797d20a6",
+      "dataAgenda": "30/08/2023",
+      "horaAgenda": "10:00",
+      "clienteAgenda": "2",
+      "servicoAgenda": "2",
+      "valorServico": 30
+    }
+  ]
+}
