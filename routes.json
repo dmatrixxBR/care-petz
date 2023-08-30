@@ -1,5 +1,5 @@
 {
 "/agendas/:codigoAgenda" : "/agendas?codigoAgenda=:codigoAgenda",
-"/clientes/:codigoCliente" : "/clientes?codigoCliente=:codigoCliente",
-"/servicos/:codigoServico" : "/servicos?codigoServico=:codigoServico"
+"/clientes/:codigoCliente" : "/clientes?codigoCliente=:codigoCliente"
+
 }
