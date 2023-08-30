@@ -65,14 +65,14 @@
 
         <div class="row" >            
            <div class="input-field col s6">
-            <label for="clienteAgenda">Cliente</label>
+            <label for="clienteId">Cliente</label>
             <select 
-              id="clienteAgenda"     
+              id="clienteId"     
               class="validate"                          
-              [(ngModel)]="agenda.clienteAgenda" 
+              [(ngModel)]="agenda.clienteId" 
               #clientselect="ngModel"
               #clientSelect
-              name="clienteAgenda"
+              name="clienteId"
               [compareWith]="compareWithClients"
               required
               >                             
@@ -85,14 +85,14 @@
         </div>
         <div class="row">            
           <div class="input-field col s6">
-            <label for="servicoAgenda">Serviço</label>
+            <label for="servicoId">Serviço</label>
            <select 
-             id="servicoAgenda"
+             id="servicoId"
              class="validate"                 
-             [(ngModel)]="agenda.servicoAgenda"
+             [(ngModel)]="agenda.servicoId"
              #serviceselect="ngModel"
              #serviceSelect 
-             name="servicoAgenda"
+             name="servicoId"
              [compareWith]="compareWithServices"
              required
              >               

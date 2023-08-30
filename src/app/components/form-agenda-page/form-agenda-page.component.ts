@@ -112,7 +112,7 @@ export class FormAgendaPageComponent implements OnInit {
   }
 
  updateValorServico() {
-  const servicoSelecionado = this.agenda.servicoAgenda;
+  const servicoSelecionado = this.agenda.servicoId;
 
   if (servicoSelecionado) {
     this.agenda.valorServico = servicoSelecionado.valorServico;
