@@ -1,6 +1,5 @@
 import { Servico } from './../models/servico';
 import { Injectable } from '@angular/core';
-import { v4 as uuid } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +7,7 @@ import { v4 as uuid } from 'uuid';
 export class LocalStorageServicoService {
 
   private storageKey = 'servicos';
+  private storageKeyID = 'servicoid';
 
   constructor() {}
 
@@ -80,28 +80,54 @@ export class LocalStorageServicoService {
   }
 
   startServiceDefault(){
-    const servicos : Servico[] =[
-      {codigoServico: uuid(),
-       descricaoServico:'PETZ CARE',
-      valorServico:25.00},
-      {codigoServico: uuid(),
-        descricaoServico:'PETZ DELIVERY',
-       valorServico:40.00},
-       {codigoServico: uuid(),
-        descricaoServico:'PETZ HOTEL',
-       valorServico:50.00},
-       {codigoServico: uuid(),
-        descricaoServico:'PETZ VETZ',
-       valorServico:150.00}
-    ];
-    this.setData(servicos);
+    const servico01 : Servico = new Servico();
+    servico01.id = this.generateAndStoreSequentialValue();
+    servico01.descricaoServico = 'PETZ CARE';
+    servico01.valorServico = 30.00;
+    
+
+    const servico02 : Servico = new Servico();
+    servico02.id = this.generateAndStoreSequentialValue();
+    servico02.descricaoServico = 'PETZ VETZ';
+    servico02.valorServico = 100.00;
+
+    const servico03 : Servico = new Servico();
+    servico03.id = this.generateAndStoreSequentialValue();
+    servico03.descricaoServico = 'PETZ DELIVERY';
+    servico03.valorServico = 20.00;
+
+    const servico04 : Servico = new Servico();
+    servico04.id = this.generateAndStoreSequentialValue();
+    servico04.descricaoServico = 'PETZ HOTEL';
+    servico04.valorServico = 80.00;
+
+
+    const servicos = [];
+    servicos.push(servico01);
+    servicos.push(servico02);    
+    servicos.push(servico03);    
+    servicos.push(servico04);
+    
+    this.setData(servicos);  
+
+
     
   }
+
+  
 
   isExistServico(id: string): boolean {
     const data = this.getData();
     const existingServico = data.find(servico => servico.codigoServico === id);
     return !!existingServico;
+  }
+
+  generateAndStoreSequentialValue() : number {
+    
+    const currentValue = localStorage.getItem(this.storageKeyID) ||'0';
+    const newValue = parseInt(currentValue) + 1;
+    localStorage.setItem(this.storageKeyID, newValue.toString());  
+    return newValue;
   }
 
 }

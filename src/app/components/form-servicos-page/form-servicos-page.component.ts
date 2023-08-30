@@ -47,6 +47,7 @@ export class FormServicosPageComponent implements OnInit {
 
     saveServico(){
       if (!this.localStorageServico.isExistServico(this.servico.codigoServico)) {
+          this.servico.id = this.localStorageServico.generateAndStoreSequentialValue();
           this.localStorageServico.create(this.servico);      
       }  else {
         this.localStorageServico.update(this.servico);

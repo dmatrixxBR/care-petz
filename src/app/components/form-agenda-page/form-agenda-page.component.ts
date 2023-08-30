@@ -121,6 +121,7 @@ export class FormAgendaPageComponent implements OnInit {
 
 saveAgenda(){
   if (!this.localStorageAgenda.isExistAgenda(this.agenda.codigoAgenda)) {
+      this.agenda.id = this.localStorageAgenda.generateAndStoreSequentialValue();
       this.localStorageAgenda.create(this.agenda);      
   }  else {
     this.localStorageAgenda.update(this.agenda);

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class LocalStorageAgendaService {
 
   private storageKey = 'agendas';
+  private storageKeyID = 'agendaid';
 
   constructor() {}
 
@@ -69,4 +70,15 @@ export class LocalStorageAgendaService {
     const existingAgenda = data.find(agenda => agenda.codigoAgenda === id);
     return !!existingAgenda;
   }
+
+  generateAndStoreSequentialValue() : number {
+    
+    const currentValue = localStorage.getItem(this.storageKeyID) ||'0';
+    const newValue = parseInt(currentValue) + 1;
+    localStorage.setItem(this.storageKeyID, newValue.toString());  
+    return newValue;
+  }
+
+
 }
+

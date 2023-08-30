@@ -47,6 +47,7 @@ export class FormClientesPageComponent implements OnInit {
 
     saveCliente(){
       if (!this.localStorageClienteService.isExistCliente(this.cliente.codigoCliente)) {
+          this.cliente.id = this.localStorageClienteService.generateAndStoreSequentialValue();
           this.localStorageClienteService.create(this.cliente);      
       }  else {
         this.localStorageClienteService.update(this.cliente);

@@ -8,6 +8,7 @@ import { v4 as uuid } from 'uuid';
 export class LocalStorageClienteService {
 
   private storageKey = 'clientes';
+  private storageKeyID = 'clienteid';
 
   constructor() {}
 
@@ -66,22 +67,31 @@ export class LocalStorageClienteService {
   }
 
   startClientDefault(){
-    const clientes : Cliente[] =[
-      { codigoCliente: uuid(),
-        nomeCliente:'John Foo',
-        celularCliente :'13996786109',
-        emailCliente:'johnfoo@foo.com.br'},
-      { codigoCliente: uuid(),
-        nomeCliente:'Mary Jane',
-        celularCliente :'11995679900',
-        emailCliente:'jane@gmail.com'},
-      { codigoCliente: uuid(),
-        nomeCliente:'Nencil Blanco',
-        celularCliente :'21997896789',
-        emailCliente:'nencil.blanco@gmail.com'},    
+    const clientes = [];
+       const cliente01 : Cliente = new Cliente();
+        cliente01.id = this.generateAndStoreSequentialValue(); 
+        cliente01.codigoCliente =  uuid();
+        cliente01.nomeCliente = 'John Foo';
+        cliente01.celularCliente = '13996786109';
+        cliente01.emailCliente = 'johnfoo@foo.com.br';
+        const cliente02 : Cliente = new Cliente();
+        cliente02.id = this.generateAndStoreSequentialValue();
+        cliente02.codigoCliente = uuid();
+        cliente02.nomeCliente = 'Mary Jane';
+        cliente02.celularCliente = '11995679900';
+        cliente02.emailCliente = 'jane@gmail.com';
+        const cliente03 : Cliente = new Cliente();
+        cliente03.id = this.generateAndStoreSequentialValue();
+        cliente03.codigoCliente =  uuid();
+        cliente03.nomeCliente = 'Nencil Blanco';
+        cliente03.celularCliente ='21997896789';
+        cliente03.emailCliente = 'nencil.blanco@gmail.com';  
+
+        clientes.push(cliente01);
+        clientes.push(cliente02);
+        clientes.push(cliente03);
       
-    ];
-    this.setData(clientes);
+        this.setData(clientes);
     
   }
 
@@ -90,5 +100,14 @@ export class LocalStorageClienteService {
     const existingCliente = data.find(cliente => cliente.codigoCliente === id);
     return !!existingCliente;
   }
+
+  generateAndStoreSequentialValue() : number {
+    
+    const currentValue = localStorage.getItem(this.storageKeyID) ||'0';
+    const newValue = parseInt(currentValue) + 1;
+    localStorage.setItem(this.storageKeyID, newValue.toString());  
+    return newValue;
+  }
+
   
 }
