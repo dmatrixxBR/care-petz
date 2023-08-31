@@ -17,6 +17,7 @@ import { FormAgendaPageComponent } from './components/form-agenda-page/form-agen
 import { FormAgendaListPageComponent } from './components/form-agenda-list-page/form-agenda-list-page.component';
 import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(ptBr);
 
@@ -39,6 +40,7 @@ registerLocaleData(ptBr);
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
