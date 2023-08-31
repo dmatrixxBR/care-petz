@@ -27,13 +27,13 @@
     {
       "codigoServico": "57246349-3aa0-4574-95d7-b5093ceaf529",
       "descricaoServico": "PETZ GPS",
-      "valorServico": 20,
+      "valorServico": 25,
       "id": 5
     },
     {
-      "codigoServico": "57246349-3aa0-4574-95d7-b5093ceaf529",
+      "codigoServico": "2e022dbf-7ffd-4c83-8e4b-976d44fee832",
       "descricaoServico": "PETZ WALKER",
-      "valorServico": 70,
+      "valorServico": 90,
       "id": 6
     }
   ],

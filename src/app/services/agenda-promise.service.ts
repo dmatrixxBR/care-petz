@@ -41,7 +41,7 @@ export class AgendaPromiseService {
   update(agenda: Agenda): Promise<Agenda> {
     return firstValueFrom(
       this.httpClient.put<Agenda>(
-        this.url,
+        `${this.url}/${agenda.id}`,
         JSON.stringify(agenda),
         this.httpOptions
       )

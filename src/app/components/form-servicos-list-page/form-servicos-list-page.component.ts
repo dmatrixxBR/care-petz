@@ -2,6 +2,7 @@ import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Servico } from 'src/app/models/servico';
 import { LocalStorageServicoService } from 'src/app/services/local-storage-servico.service';
+import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
 
 @Component({
   selector: 'app-form-servicos-list-page',
@@ -15,7 +16,8 @@ export class FormServicosListPageComponent implements OnInit {
   @Output() activate = new EventEmitter<any>();
   
   constructor(private router: Router,
-              private localStorageServicosService: LocalStorageServicoService){                
+              private localStorageServicosService: LocalStorageServicoService,
+              private apiServico : ServicoPromiseService){                
     this.activate.emit(this.title);
     this.getData();
   }
@@ -31,24 +33,35 @@ export class FormServicosListPageComponent implements OnInit {
   }
 
   onClickItem(servico:Servico){
-    this.router.navigate(['/petz/servicos',servico.codigoServico]);    
+    this.router.navigate(['/petz/servicos',servico.id]);    
   }
 
-  onClickItemDelete(servico:Servico){
-    let confirmation = window.confirm('Excluir Registro?' + servico.codigoServico);
+  async onClickItemDelete(servico:Servico) {
+    const confirmation = window.confirm('Excluir Registro?' + servico.codigoServico);
     if (!confirmation) {
-      return
+      return;
     }
-    let response : boolean = this.localStorageServicosService.delete(servico);
-    if (response) {
-      M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
+  
+    try {
+      await this.apiServico.delete(servico);
+      M.toast({html: `Registro Excluido!`, displayLength: 1500, classes: 'green'});
       this.getData();
-    }    
+      return true;
+    } catch (error) {
+      console.error('Erro ao excluir o registro:', error);
+      return false;
+    }
   }
+  
 
   getData(){
-    this.servicos = this.localStorageServicosService.getData();
-    this.servicosCounter = this.servicos.length;
+    //this.servicos = this.localStorageServicosService.getData();
+    //this.servicosCounter = this.servicos.length;
+    this.apiServico.all().then((servs: Servico[]) =>{
+      this.servicos = servs;
+      this.servicosCounter = servs.length;
+    })
+
   }
 
 }

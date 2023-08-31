@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Servico } from 'src/app/models/servico';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageServicoService } from 'src/app/services/local-storage-servico.service';
+import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
 
 @Component({
   selector: 'app-form-servicos-page',
@@ -17,7 +18,8 @@ export class FormServicosPageComponent implements OnInit {
   
   constructor(private router: Router,
               private route : ActivatedRoute,
-              private localStorageServico: LocalStorageServicoService ){
+              private localStorageServico: LocalStorageServicoService,
+              private apiServico : ServicoPromiseService ){
     this.activate.emit(this.title);
   }
 
@@ -28,7 +30,10 @@ export class FormServicosPageComponent implements OnInit {
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
         M.toast({html: `Parametro Passado no Serviço ` + idParam,displayLength: 1500, classes:'green'});
-        this.servico = this.localStorageServico.getById(idParam);
+       this.apiServico.getByID(idParam)
+       .then((serv:Servico) => {
+        this.servico = serv;
+       });    //this.localStorageServico.getById(idParam);
       }
     }
 
@@ -45,15 +50,42 @@ export class FormServicosPageComponent implements OnInit {
       this.router.navigate(['/petz/servicos/lista']);
     }
 
-    saveServico(){
-      if (!this.localStorageServico.isExistServico(this.servico.codigoServico)) {
-          this.servico.id = this.localStorageServico.generateAndStoreSequentialValue();
-          this.localStorageServico.create(this.servico);      
-      }  else {
-        this.localStorageServico.update(this.servico);
-      } 
-      M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
-      this.form.reset();
+  //  saveServico(){
+  //    if (!this.localStorageServico.isExistServico(this.servico.codigoServico)) {
+  //        this.servico.id = this.localStorageServico.generateAndStoreSequentialValue();
+  //        this.localStorageServico.create(this.servico);      
+  //    }  else {
+  //      this.localStorageServico.update(this.servico);
+  //    } 
+  //    M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
+  //    this.form.reset();
+  //  }
+
+  saveServico() {
+    if (!this.servico.id) {
+      // Novo serviço, usar o método save
+      this.apiServico.save(this.servico)
+        .then(savedServico => {
+          M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
+          this.form.reset();
+        })
+        .catch(error => {
+          console.error('Erro ao salvar o registro:', error);
+          // Trate o erro aqui, se necessário
+        });
+    } else {
+      // Serviço existente, usar o método update
+      this.apiServico.update(this.servico)
+        .then(updatedServico => {
+          M.toast({ html: `Registro Atualizado com sucesso!`, displayLength: 1500, classes: 'green' });
+          this.form.reset();
+        })
+        .catch(error => {
+          console.error('Erro ao atualizar o registro:', error);
+          console.log(this.servico);
+        });
     }
+  }
+  
 
 }

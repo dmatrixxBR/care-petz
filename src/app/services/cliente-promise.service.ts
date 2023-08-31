@@ -40,7 +40,7 @@ export class ClientePromiseService {
   update(cliente: Cliente): Promise<Cliente> {
     return firstValueFrom(
       this.httpClient.put<Cliente>(
-        this.url,
+        `${this.url}/${cliente.id}`,
         JSON.stringify(cliente),
         this.httpOptions
       )

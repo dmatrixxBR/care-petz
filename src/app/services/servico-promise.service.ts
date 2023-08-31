@@ -41,7 +41,7 @@ export class ServicoPromiseService {
   update(servico: Servico): Promise<Servico> {
     return firstValueFrom(
       this.httpClient.put<Servico>(
-        this.url,
+        `${this.url}/${servico.id}`,
         JSON.stringify(servico),
         this.httpOptions
       )
