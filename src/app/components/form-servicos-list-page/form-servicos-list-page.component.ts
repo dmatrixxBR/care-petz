@@ -1,7 +1,6 @@
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Servico } from 'src/app/models/servico';
-import { LocalStorageServicoService } from 'src/app/services/local-storage-servico.service';
 import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
 
 @Component({
@@ -15,8 +14,7 @@ export class FormServicosListPageComponent implements OnInit {
   title ='Lista Serviços';
   @Output() activate = new EventEmitter<any>();
   
-  constructor(private router: Router,
-              private localStorageServicosService: LocalStorageServicoService,
+  constructor(private router: Router,              
               private apiServico : ServicoPromiseService){                
     this.activate.emit(this.title);
     this.getData();

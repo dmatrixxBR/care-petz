@@ -1,9 +1,6 @@
 import { Component, OnInit,Output,ViewChild,EventEmitter,AfterViewInit, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LocalStorageAgendaService } from 'src/app/services/local-storage-agenda.service';
-import { LocalStorageClienteService } from 'src/app/services/local-storage-cliente.service';
-import { LocalStorageServicoService } from 'src/app/services/local-storage-servico.service';
 import { Agenda } from 'src/app/models/agenda';
 import { Cliente } from 'src/app/models/cliente';
 import { Servico } from 'src/app/models/servico';
@@ -34,9 +31,6 @@ export class FormAgendaPageComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private localStorageAgenda : LocalStorageAgendaService,
-              private localStorageCliente: LocalStorageClienteService,
-              private localStorageServico: LocalStorageServicoService,
               private apiServico : ServicoPromiseService,
               private apiCliente : ClientePromiseService,
               private apiAgenda : AgendaPromiseService){

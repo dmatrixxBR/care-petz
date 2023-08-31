@@ -1,7 +1,6 @@
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Agenda } from 'src/app/models/agenda';
-import { LocalStorageAgendaService } from 'src/app/services/local-storage-agenda.service';
 import { AgendaPromiseService } from 'src/app/services/agenda-promise.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class FormAgendaListPageComponent implements OnInit {
   @Output() activate = new EventEmitter<any>();
   constructor( private route: ActivatedRoute,
                private router: Router,
-               private localStorageAgenda: LocalStorageAgendaService,
                private apiAgenda : AgendaPromiseService ){
     
                 this.activate.emit(this.title);

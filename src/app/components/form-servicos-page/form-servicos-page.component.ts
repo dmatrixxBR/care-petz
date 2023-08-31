@@ -2,7 +2,6 @@ import { Component, OnInit,Output,ViewChild,EventEmitter,AfterViewInit } from '@
 import { NgForm } from '@angular/forms';
 import { Servico } from 'src/app/models/servico';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LocalStorageServicoService } from 'src/app/services/local-storage-servico.service';
 import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class FormServicosPageComponent implements OnInit {
   
   constructor(private router: Router,
               private route : ActivatedRoute,
-              private localStorageServico: LocalStorageServicoService,
               private apiServico : ServicoPromiseService ){
     this.activate.emit(this.title);
   }

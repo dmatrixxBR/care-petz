@@ -4,7 +4,7 @@
       "id": 1,
       "codigoServico": "b965b72d-e43c-478a-b5d3-d77e15a196ae",
       "descricaoServico": "PETZ CARE",
-      "valorServico": 30
+      "valorServico": 40
     },
     {
       "id": 2,
@@ -13,28 +13,16 @@
       "valorServico": 100
     },
     {
-      "id": 3,
-      "codigoServico": "57246349-3aa0-4574-95d7-b5093ceaf527",
-      "descricaoServico": "PETZ DELIVERY",
-      "valorServico": 20
-    },
-    {
-      "id": 4,
-      "codigoServico": "7f458c5f-5b9a-4f0f-a214-ae2dc034fc3f",
-      "descricaoServico": "PETZ HOTEL",
-      "valorServico": 80
-    },
-    {
-      "codigoServico": "57246349-3aa0-4574-95d7-b5093ceaf529",
-      "descricaoServico": "PETZ GPS",
-      "valorServico": 25,
-      "id": 5
-    },
-    {
-      "codigoServico": "2e022dbf-7ffd-4c83-8e4b-976d44fee832",
+      "codigoServico": "1b7ae4f3-2f74-4808-b823-41a74a246dc1",
       "descricaoServico": "PETZ WALKER",
-      "valorServico": 90,
-      "id": 6
+      "valorServico": 65,
+      "id": 3
+    },
+    {
+      "codigoServico": "a43a7bc4-49f9-44de-817f-bbb268844035",
+      "descricaoServico": "PETZ DELIVERY",
+      "valorServico": 20,
+      "id": 4
     }
   ],
   "clientes": [
@@ -49,8 +37,8 @@
       "id": 2,
       "codigoCliente": "bf08f5d3-3558-495a-a6ad-16ccda14c569",
       "nomeCliente": "Mary Jane",
-      "celularCliente": "11995679900",
-      "emailCliente": "jane@gmail.com"
+      "celularCliente": "(11) 99567-9900",
+      "emailCliente": "janemail@gmail.com"
     },
     {
       "id": 3,
@@ -58,27 +46,34 @@
       "nomeCliente": "Nencil Blanco",
       "celularCliente": "21997896789",
       "emailCliente": "nencil.blanco@gmail.com"
+    },
+    {
+      "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
+      "nomeCliente": "Danny Boy",
+      "celularCliente": "(13) 88640-5360",
+      "emailCliente": "danny.boy@linx.com.br",
+      "id": 4
     }
   ],
   "agendas": [
     {
-      "codigoAgenda": "e032a565-a1c1-4c41-b12c-6cd86a2ed13f",
-      "horaAgenda": "09:30",
+      "codigoAgenda": "8ab1b674-7987-443f-af61-c70e677a1a80",
+      "horaAgenda": "11:00",
       "dataAgenda": "31/08/2023",
       "clienteId": {
-        "id": 3,
-        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
-        "nomeCliente": "Nencil Blanco",
-        "celularCliente": "21997896789",
-        "emailCliente": "nencil.blanco@gmail.com"
+        "id": 2,
+        "codigoCliente": "bf08f5d3-3558-495a-a6ad-16ccda14c569",
+        "nomeCliente": "Mary Jane",
+        "celularCliente": "11995679900",
+        "emailCliente": "jane@gmail.com"
       },
       "servicoId": {
-        "id": 3,
-        "codigoServico": "57246349-3aa0-4574-95d7-b5093ceaf527",
-        "descricaoServico": "PETZ DELIVERY",
-        "valorServico": 20
+        "id": 2,
+        "codigoServico": "9ffc4665-49a6-45ec-b167-6ec629d7f150",
+        "descricaoServico": "PETZ VETZ",
+        "valorServico": 100
       },
-      "valorServico": 90,
+      "valorServico": 80,
       "id": 1
     }
   ]

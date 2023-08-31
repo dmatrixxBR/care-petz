@@ -94,6 +94,7 @@
              #serviceSelect 
              name="servicoId"
              [compareWith]="compareWithServices"
+             (change)="this.updateValorServico()"
              required
              >               
              <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>

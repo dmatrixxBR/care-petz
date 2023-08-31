@@ -2,7 +2,6 @@ import { Component, OnInit,Output,ViewChild,EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from './../../models/cliente';
-import { LocalStorageClienteService } from 'src/app/services/local-storage-cliente.service';
 import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 import * as M from 'materialize-css';
 
@@ -18,8 +17,7 @@ export class FormClientesPageComponent implements OnInit {
   @Output() activate = new EventEmitter<string>();
   
   constructor(private router: Router,
-              private route :ActivatedRoute,
-              private localStorageClienteService : LocalStorageClienteService,
+              private route :ActivatedRoute,              
               private apiCliente : ClientePromiseService ){
     this.activate.emit(this.title);    
   }
