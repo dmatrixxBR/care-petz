@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { Cliente } from '../models/cliente';
 
 @Injectable({
@@ -20,15 +20,15 @@ export class ClientePromiseService {
    }
 
    all(): Promise<Cliente[]> {
-    return firstValueFrom(this.httpClient.get<Cliente[]>(`${this.url}`));
+    return lastValueFrom(this.httpClient.get<Cliente[]>(`${this.url}`));
   }
 
   getByID(id: string): Promise<Cliente> {
-    return firstValueFrom(this.httpClient.get<Cliente>(`${this.url}/${id}`));
+    return lastValueFrom(this.httpClient.get<Cliente>(`${this.url}/${id}`));
   }
 
   save(cliente: Cliente): Promise<Cliente> {
-    return firstValueFrom(
+    return lastValueFrom(
       this.httpClient.post<Cliente>(
         this.url,
         JSON.stringify(cliente),
@@ -38,7 +38,7 @@ export class ClientePromiseService {
   }
 
   update(cliente: Cliente): Promise<Cliente> {
-    return firstValueFrom(
+    return lastValueFrom(
       this.httpClient.put<Cliente>(
         `${this.url}/${cliente.id}`,
         JSON.stringify(cliente),
@@ -48,7 +48,7 @@ export class ClientePromiseService {
   }
 
   delete(cliente: Cliente) {
-    return firstValueFrom(this.httpClient.delete(`${this.url}/${cliente.id}`));
+    return lastValueFrom(this.httpClient.delete(`${this.url}/${cliente.id}`));
   }
 
 }

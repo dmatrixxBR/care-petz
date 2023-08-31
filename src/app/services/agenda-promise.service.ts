@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 import { Agenda } from '../models/agenda';
 
 @Injectable({
@@ -21,15 +21,15 @@ export class AgendaPromiseService {
    }
 
    all(): Promise<Agenda[]> {
-    return firstValueFrom(this.httpClient.get<Agenda[]>(`${this.url}`));
+    return lastValueFrom(this.httpClient.get<Agenda[]>(`${this.url}`));
   }
 
   getByID(id: string): Promise<Agenda> {
-    return firstValueFrom(this.httpClient.get<Agenda>(`${this.url}/${id}`));
+    return lastValueFrom(this.httpClient.get<Agenda>(`${this.url}/${id}`));
   }
 
   save(agenda: Agenda): Promise<Agenda> {
-    return firstValueFrom(
+    return lastValueFrom(
       this.httpClient.post<Agenda>(
         this.url,
         JSON.stringify(agenda),
@@ -39,7 +39,7 @@ export class AgendaPromiseService {
   }
 
   update(agenda: Agenda): Promise<Agenda> {
-    return firstValueFrom(
+    return lastValueFrom(
       this.httpClient.put<Agenda>(
         `${this.url}/${agenda.id}`,
         JSON.stringify(agenda),
@@ -49,7 +49,7 @@ export class AgendaPromiseService {
   }
 
   delete(agenda: Agenda) {
-    return firstValueFrom(this.httpClient.delete(`${this.url}/${agenda.id}`));
+    return lastValueFrom(this.httpClient.delete(`${this.url}/${agenda.id}`));
   }
 
 }

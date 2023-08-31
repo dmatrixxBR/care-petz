@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 import { Servico } from '../models/servico';
 
 @Injectable({
@@ -21,15 +21,15 @@ export class ServicoPromiseService {
    }
 
    all(): Promise<Servico[]> {
-    return firstValueFrom(this.httpClient.get<Servico[]>(`${this.url}`));
+    return lastValueFrom(this.httpClient.get<Servico[]>(`${this.url}`));
   }
 
   getByID(id: string): Promise<Servico> {
-    return firstValueFrom(this.httpClient.get<Servico>(`${this.url}/${id}`));
+    return lastValueFrom(this.httpClient.get<Servico>(`${this.url}/${id}`));
   }
 
   save(servico: Servico): Promise<Servico> {
-    return firstValueFrom(
+    return lastValueFrom(
       this.httpClient.post<Servico>(
         this.url,
         JSON.stringify(servico),
@@ -39,7 +39,7 @@ export class ServicoPromiseService {
   }
 
   update(servico: Servico): Promise<Servico> {
-    return firstValueFrom(
+    return lastValueFrom(
       this.httpClient.put<Servico>(
         `${this.url}/${servico.id}`,
         JSON.stringify(servico),
@@ -49,7 +49,7 @@ export class ServicoPromiseService {
   }
 
   delete(servico: Servico) {
-    return firstValueFrom(this.httpClient.delete(`${this.url}/${servico.id}`));
+    return lastValueFrom(this.httpClient.delete(`${this.url}/${servico.id}`));
   }
 
 }
