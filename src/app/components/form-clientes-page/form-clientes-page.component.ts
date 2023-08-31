@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from './../../models/cliente';
 import { LocalStorageClienteService } from 'src/app/services/local-storage-cliente.service';
+import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 import * as M from 'materialize-css';
 
 @Component({
@@ -18,7 +19,8 @@ export class FormClientesPageComponent implements OnInit {
   
   constructor(private router: Router,
               private route :ActivatedRoute,
-              private localStorageClienteService : LocalStorageClienteService ){
+              private localStorageClienteService : LocalStorageClienteService,
+              private apiCliente : ClientePromiseService ){
     this.activate.emit(this.title);    
   }
 
@@ -28,7 +30,11 @@ export class FormClientesPageComponent implements OnInit {
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
         M.toast({html: `Parametro Passado no Cliente ` + idParam,displayLength: 1500, classes:'green'});
-        this.cliente = this.localStorageClienteService.getById(idParam);
+        //this.cliente = this.localStorageClienteService.getById(idParam);
+        this.apiCliente.getByID(idParam)
+        .then((cli:Cliente) => {
+         this.cliente = cli;
+        });
       }
     }
 
@@ -45,16 +51,41 @@ export class FormClientesPageComponent implements OnInit {
       this.router.navigate(['/petz/clientes/lista']);
     }
 
-    saveCliente(){
-      if (!this.localStorageClienteService.isExistCliente(this.cliente.codigoCliente)) {
-          this.cliente.id = this.localStorageClienteService.generateAndStoreSequentialValue();
-          this.localStorageClienteService.create(this.cliente);      
-      }  else {
-        this.localStorageClienteService.update(this.cliente);
-      } 
-      M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
-      this.form.reset();
+   // saveCliente(){
+   //   if (!this.localStorageClienteService.isExistCliente(this.cliente.codigoCliente)) {
+   //       this.cliente.id = this.localStorageClienteService.generateAndStoreSequentialValue();
+   //       this.localStorageClienteService.create(this.cliente);      
+   //   }  else {
+   //     this.localStorageClienteService.update(this.cliente);
+   //   } 
+   //   M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
+   //   this.form.reset();
+   // }
+
+   saveCliente() {
+    if (!this.cliente.id) {
+      // Novo serviço, usar o método save
+      this.apiCliente.save(this.cliente)
+        .then(savedCliente => {
+          M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
+          this.form.reset();
+        })
+        .catch(error => {
+          console.error('Erro ao salvar o registro:', error);
+        });
+    } else {
+      // Serviço existente, usar o método update
+      this.apiCliente.update(this.cliente)
+        .then(updatedCliente => {
+          M.toast({ html: `Registro Atualizado com sucesso!`, displayLength: 1500, classes: 'green' });
+          this.form.reset();
+        })
+        .catch(error => {
+          console.error('Erro ao atualizar o registro:', error);
+          console.log(this.cliente);
+        });
     }
+  }
 
    
 }

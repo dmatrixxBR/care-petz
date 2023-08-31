@@ -2,6 +2,7 @@ import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { LocalStorageClienteService } from 'src/app/services/local-storage-cliente.service';
+import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 
 @Component({
   selector: 'app-form-clientes-list-page',
@@ -17,7 +18,8 @@ export class FormClientesListPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private localStorageCliente:LocalStorageClienteService){
+              private localStorageCliente:LocalStorageClienteService,
+              private apiCliente : ClientePromiseService){
     this.activate.emit(this.title);
     this.getData();
   }
@@ -34,24 +36,33 @@ export class FormClientesListPageComponent implements OnInit {
   }
 
   onClickItem(cliente:Cliente){
-    this.router.navigate(['/petz/clientes',cliente.codigoCliente]);    
+    this.router.navigate(['/petz/clientes',cliente.id]);    
   }
 
-  onClickItemDelete(cliente:Cliente){
-    let confirmation = window.confirm('Excluir Registro?' + cliente.codigoCliente);
+  async onClickItemDelete(cliente:Cliente) {
+    const confirmation = window.confirm('Excluir Registro?' + cliente.codigoCliente);
     if (!confirmation) {
-      return
+      return;
     }
-    let response : boolean = this.localStorageCliente.delete(cliente);
-    if (response) {
-      M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
+  
+    try {
+      await this.apiCliente.delete(cliente);
+      M.toast({html: `Registro Excluido!`, displayLength: 1500, classes: 'green'});
       this.getData();
-    }    
+      return true;
+    } catch (error) {
+      console.error('Erro ao excluir o registro:', error);
+      return false;
+    }
   }
 
   getData(){
-    this.clientes = this.localStorageCliente.getData();
-    this.clientesCounter = this.clientes.length;
+   // this.clientes = this.localStorageCliente.getData();
+   // this.clientesCounter = this.clientes.length;
+   this.apiCliente.all().then((clis: Cliente[]) =>{
+    this.clientes = clis;
+    this.clientesCounter = clis.length;
+  });
   }
 
 
