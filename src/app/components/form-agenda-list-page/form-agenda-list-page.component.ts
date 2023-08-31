@@ -2,6 +2,7 @@ import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Agenda } from 'src/app/models/agenda';
 import { LocalStorageAgendaService } from 'src/app/services/local-storage-agenda.service';
+import { AgendaPromiseService } from 'src/app/services/agenda-promise.service';
 
 @Component({
   selector: 'app-form-agenda-list-page',
@@ -16,7 +17,8 @@ export class FormAgendaListPageComponent implements OnInit {
   @Output() activate = new EventEmitter<any>();
   constructor( private route: ActivatedRoute,
                private router: Router,
-               private localStorageAgenda: LocalStorageAgendaService ){
+               private localStorageAgenda: LocalStorageAgendaService,
+               private apiAgenda : AgendaPromiseService ){
     
                 this.activate.emit(this.title);
                 this.getData();
@@ -34,25 +36,34 @@ export class FormAgendaListPageComponent implements OnInit {
   }
 
   onClickItem(agenda:Agenda){
-    this.router.navigate(['/petz/agenda',agenda.codigoAgenda]);    
+    this.router.navigate(['/petz/agenda',agenda.id]);    
   }
 
-  onClickItemDelete(agenda:Agenda){
-    let confirmation = window.confirm('Excluir Registro?' + agenda.codigoAgenda);
+  async onClickItemDelete(agenda:Agenda) {
+    const confirmation = window.confirm('Excluir Registro?' + agenda.codigoAgenda);
     if (!confirmation) {
-      return
+      return;
     }
-    let response : boolean = this.localStorageAgenda.delete(agenda);
-    if (response) {
-      M.toast({html: `Registro Excluido!`,displayLength: 1500, classes:'green'});
+  
+    try {
+      await this.apiAgenda.delete(agenda);
+      M.toast({html: `Registro Excluido!`, displayLength: 1500, classes: 'green'});
       this.getData();
-    }   
-    
+      return true;
+    } catch (error) {
+      console.error('Erro ao excluir o registro:', error);
+      return false;
+    }
   }
 
     getData(){
-    this.agendas = this.localStorageAgenda.getData();
-    this.agendasCounter = this.agendas.length;
+    //this.agendas = this.localStorageAgenda.getData();
+    //this.agendasCounter = this.agendas.length;
+    this.apiAgenda.all().then((agds: Agenda[]) =>{
+      this.agendas = agds;
+      this.agendasCounter = agds.length;
+    });
+
   }
 
 

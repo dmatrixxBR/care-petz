@@ -62,22 +62,24 @@
   ],
   "agendas": [
     {
-      "id": "1",
-      "codigoAgenda": "2508dd45-6c18-4220-95e1-ecc3bd26d3d6",
-      "dataAgenda": "28/08/2023",
-      "horaAgenda": "15:30",
-      "clienteId": "1",
-      "servicoId": "1",
-      "valorServico": 50
-    },
-    {
-      "id": "2",
-      "codigoAgenda": "c16cbb53-019a-4122-92a6-0a26797d20a6",
-      "dataAgenda": "30/08/2023",
-      "horaAgenda": "10:00",
-      "clienteId": "2",
-      "servicoId": "2",
-      "valorServico": 30
+      "codigoAgenda": "e032a565-a1c1-4c41-b12c-6cd86a2ed13f",
+      "horaAgenda": "09:30",
+      "dataAgenda": "31/08/2023",
+      "clienteId": {
+        "id": 3,
+        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
+        "nomeCliente": "Nencil Blanco",
+        "celularCliente": "21997896789",
+        "emailCliente": "nencil.blanco@gmail.com"
+      },
+      "servicoId": {
+        "id": 3,
+        "codigoServico": "57246349-3aa0-4574-95d7-b5093ceaf527",
+        "descricaoServico": "PETZ DELIVERY",
+        "valorServico": 20
+      },
+      "valorServico": 90,
+      "id": 1
     }
   ]
 }

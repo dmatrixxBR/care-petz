@@ -8,6 +8,10 @@ import { Agenda } from 'src/app/models/agenda';
 import { Cliente } from 'src/app/models/cliente';
 import { Servico } from 'src/app/models/servico';
 import * as M from 'materialize-css';
+import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
+import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
+import { AgendaPromiseService } from 'src/app/services/agenda-promise.service';
+
 
 @Component({
   selector: 'app-form-agenda-page',
@@ -32,7 +36,10 @@ export class FormAgendaPageComponent implements OnInit {
               private route: ActivatedRoute,
               private localStorageAgenda : LocalStorageAgendaService,
               private localStorageCliente: LocalStorageClienteService,
-              private localStorageServico: LocalStorageServicoService){
+              private localStorageServico: LocalStorageServicoService,
+              private apiServico : ServicoPromiseService,
+              private apiCliente : ClientePromiseService,
+              private apiAgenda : AgendaPromiseService){
     
                 this.activate.emit(this.title);
 
@@ -47,15 +54,20 @@ export class FormAgendaPageComponent implements OnInit {
     let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
         M.toast({html: `Parametro Passado na Agenda ` + idParam,displayLength: 1500, classes:'green'});
-        this.agenda = this.localStorageAgenda.getById(idParam);
+        //this.agenda = this.localStorageAgenda.getById(idParam);
+        this.apiAgenda.getByID(idParam)
+       .then((agd:Agenda) => {
+        this.agenda = agd;
+       }); 
         
       }
-      M.AutoInit(); 
+     // M.AutoInit(); 
 
       const servicoSelect = document.getElementById('servicoAgenda') as HTMLSelectElement;
       servicoSelect.addEventListener('change', () => {
       this.updateValorServico();
     });
+
   }
 
   ngAfterViewInit(){
@@ -68,7 +80,6 @@ export class FormAgendaPageComponent implements OnInit {
   }
   
   onSubmit():void{
-
     this.saveAgenda(); 
     this.router.navigate(['/petz/agenda/lista']);
   }
@@ -77,27 +88,37 @@ export class FormAgendaPageComponent implements OnInit {
     this.router.navigate(['/petz/agenda/lista']);
   }
 
-  loadClientList(){
-   this.clientes = this.localStorageCliente.getData();
-   console.log(this.clientes);
-   setTimeout(()=> {
+  async loadClientList(){
+  //  this.clientes = this.localStorageCliente.getData();
+  this.apiCliente.all().then((clis: Cliente[]) =>{
+    this.clientes = clis; 
+  });
+  
+    console.log(this.clientes);
+  
+    setTimeout(()=> {
     M.FormSelect.init(this.clientSelect.nativeElement);
    },100);
 
   }
   
-  loadServiceList(){
-    this.servicos = this.localStorageServico.getData();
-    //.then(data => this.servicos = data);
+ async loadServiceList(){
+  //  this.servicos = this.localStorageServico.getData();
+    this.apiServico.all().then((servs: Servico[]) =>{
+      this.servicos = servs; 
+    });
+    
     console.log(this.servicos);
     setTimeout(()=> {
       M.FormSelect.init(this.serviceSelect.nativeElement);
      },100);
   }
 
-  loadAgendaList(){
-    this.agendas = this.localStorageAgenda.getData();
-    //.then(data => this.servicos = data);
+  async loadAgendaList(){
+    //this.agendas = this.localStorageAgenda.getData();
+    this.apiAgenda.all().then((agds: Agenda[]) =>{
+      this.agendas = agds; 
+    });    
     console.log(this.agendas);
   }
 
@@ -119,15 +140,41 @@ export class FormAgendaPageComponent implements OnInit {
   }
 }
 
-saveAgenda(){
-  if (!this.localStorageAgenda.isExistAgenda(this.agenda.codigoAgenda)) {
-      this.agenda.id = this.localStorageAgenda.generateAndStoreSequentialValue();
-      this.localStorageAgenda.create(this.agenda);      
-  }  else {
-    this.localStorageAgenda.update(this.agenda);
-  } 
-  M.toast({html: `Agendamento Salvo com sucesso!`,displayLength: 1500, classes:'green'});
-  this.form.reset();
+//saveAgenda(){
+//  if (!this.localStorageAgenda.isExistAgenda(this.agenda.codigoAgenda)) {
+//      this.agenda.id = this.localStorageAgenda.generateAndStoreSequentialValue();
+//      this.localStorageAgenda.create(this.agenda);      
+//  }  else {
+//    this.localStorageAgenda.update(this.agenda);
+//  } 
+//  M.toast({html: `Agendamento Salvo com sucesso!`,displayLength: 1500, classes:'green'});
+//  this.form.reset();
+//}
+
+saveAgenda() {
+  if (!this.agenda.id) {
+    // Novo, usar o método save
+    this.apiAgenda.save(this.agenda)
+      .then(savedAgenda => {
+        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
+        this.form.reset();
+      })
+      .catch(error => {
+        console.error('Erro ao salvar o registro:', error);
+      });
+  } else {
+    //  existente, usar o método update
+    this.apiAgenda.update(this.agenda)
+      .then(updatedAgenda => {
+        M.toast({ html: `Registro Atualizado com sucesso!`, displayLength: 1500, classes: 'green' });
+        this.form.reset();
+      })
+      .catch(error => {
+        console.error('Erro ao atualizar o registro:', error);
+        console.log(this.agenda);
+      });
+  }
 }
+
 
 }
