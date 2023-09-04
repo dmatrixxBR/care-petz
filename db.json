@@ -13,12 +13,6 @@
       "id": 2
     },
     {
-      "codigoServico": "c257cb32-3805-42be-939e-075807c79376",
-      "descricaoServico": "PETZ WALKER",
-      "valorServico": 40,
-      "id": 3
-    },
-    {
       "codigoServico": "b1a5c022-eefb-4ead-8760-7665ac95c59a",
       "descricaoServico": "PETZ DELIVERY",
       "valorServico": 30,
@@ -55,46 +49,5 @@
       "id": 4
     }
   ],
-  "agendas": [
-    {
-      "codigoAgenda": "3b603e59-2df5-4ac7-b65c-5fba4558fada",
-      "horaAgenda": "12:29",
-      "dataAgenda": "31/08/2023",
-      "clienteId": {
-        "id": 3,
-        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
-        "nomeCliente": "Nencil Blanco",
-        "celularCliente": "(21) 99789-6789",
-        "emailCliente": "nencil.blanco@gmail.com"
-      },
-      "servicoId": {
-        "codigoServico": "c257cb32-3805-42be-939e-075807c79376",
-        "descricaoServico": "PETZ WALKER",
-        "valorServico": 40,
-        "id": 3
-      },
-      "valorServico": 30,
-      "id": 1
-    },
-    {
-      "codigoAgenda": "c41de545-a319-467c-8617-69f9e37197f8",
-      "horaAgenda": "12:30",
-      "dataAgenda": "31/08/2023",
-      "clienteId": {
-        "id": 2,
-        "codigoCliente": "bf08f5d3-3558-495a-a6ad-16ccda14c569",
-        "nomeCliente": "Mary Jane",
-        "celularCliente": "(11) 99567-9901",
-        "emailCliente": "janemail@gmail.com"
-      },
-      "servicoId": {
-        "codigoServico": "c257cb32-3805-42be-939e-075807c79376",
-        "descricaoServico": "PETZ WALKER",
-        "valorServico": 40,
-        "id": 3
-      },
-      "valorServico": 70,
-      "id": 2
-    }
-  ]
+  "agendas": []
 }

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Servico } from 'src/app/models/servico';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-servicos-page',
@@ -13,6 +14,9 @@ export class FormServicosPageComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
   servico!:Servico;
   title ='Serviços';
+  
+  servico$! : Observable<Servico>;
+
   @Output() activate = new EventEmitter<any>();
   
   constructor(private router: Router,
@@ -28,11 +32,21 @@ export class FormServicosPageComponent implements OnInit {
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
         M.toast({html: `Parametro Passado no Serviço ` + idParam,displayLength: 1500, classes:'green'});
-       this.apiServico.getByID(idParam)
-       .then((serv:Servico) => {
-        this.servico = serv;
-       });    //this.localStorageServico.getById(idParam);
+       this.getServico(idParam);
       }
+    }
+
+    getServico(id:string) {
+      this.servico$ = this.apiServico.getByIDObs(id);
+
+      this.servico$.subscribe({
+        next:(serv) => {
+          this.servico = serv;
+        },
+        error: (error) =>{
+          alert(error);
+        }
+      })
     }
 
     setEmptyServico() {
@@ -62,26 +76,31 @@ export class FormServicosPageComponent implements OnInit {
   saveServico() {
     if (!this.servico.id) {
       // Novo serviço, usar o método save
-      this.apiServico.save(this.servico)
-        .then(savedServico => {
-          M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
-          this.form.reset();
-        })
-        .catch(error => {
-          console.error('Erro ao salvar o registro:', error);
-        });
+     this.servico$ = this.apiServico.saveObs(this.servico);
+     
+     this.servico$.subscribe({
+      next:(serv) => {
+        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
+      },
+      error:(error) => {
+        alert (error);
+      }
+     });     
+     
     } else {
-      // Serviço existente, usar o método update
-      this.apiServico.update(this.servico)
-        .then(updatedServico => {
-          M.toast({ html: `Registro Atualizado com sucesso!`, displayLength: 1500, classes: 'green' });
-          this.form.reset();
-        })
-        .catch(error => {
-          console.error('Erro ao atualizar o registro:', error);
-          console.log(this.servico);
-        });
+      this.servico$ = this.apiServico.updateObs(this.servico);
+     
+     this.servico$.subscribe({
+      next:(serv) => {
+        M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
+      },
+      error:(error) => {
+        alert (error);
+      }
+     });
     }
+    this.form.reset();
+
   }
   
 

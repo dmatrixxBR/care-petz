@@ -2,6 +2,7 @@ import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Servico } from 'src/app/models/servico';
 import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-servicos-list-page',
@@ -12,6 +13,7 @@ export class FormServicosListPageComponent implements OnInit {
   servicos!: Servico[];
   servicosCounter:number=0;
   title ='Lista Serviços';
+  servico$! : Observable<Object>;
   @Output() activate = new EventEmitter<any>();
   
   constructor(private router: Router,              
@@ -39,26 +41,38 @@ export class FormServicosListPageComponent implements OnInit {
     if (!confirmation) {
       return;
     }
-  
-    try {
-      await this.apiServico.delete(servico);
-      M.toast({html: `Registro Excluido!`, displayLength: 1500, classes: 'green'});
-      this.getData();
-      return true;
-    } catch (error) {
-      console.error('Erro ao excluir o registro:', error);
-      return false;
-    }
+    
+    this.servico$ = this.apiServico.deleteObs(servico);
+
+    this.servico$.subscribe({
+      next: (serv) =>{
+        M.toast({html: `Registro Excluido com sucesso ` ,displayLength: 1500, classes:'green'});
+        this.getData();
+      },
+      error:(error) => {
+        alert (error);
+      } 
+    });
+
+
+   
   }
   
 
-  getData(){
+  getData() {
     //this.servicos = this.localStorageServicosService.getData();
     //this.servicosCounter = this.servicos.length;
-    this.apiServico.all().then((servs: Servico[]) =>{
-      this.servicos = servs;
-      this.servicosCounter = servs.length;
-    })
+
+    this.apiServico.allObs().subscribe({
+      next:(servs) => {
+        this.servicos = servs;
+        this.servicosCounter = servs.length;
+      },
+      error:(error) =>{
+        alert (error);
+      }
+
+  });  
 
   }
 
