@@ -53,7 +53,7 @@ export class FormClientesListPageComponent implements OnInit {
         this.getData();
       },
       error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
       } 
     }); 
   }
@@ -65,7 +65,7 @@ export class FormClientesListPageComponent implements OnInit {
         this.clientesCounter = clis.length;
       },
       error:(error) =>{
-        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
       }
 
   });  

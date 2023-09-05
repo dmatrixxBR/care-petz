@@ -50,6 +50,7 @@ export class FormAgendaPageComponent implements OnInit {
       if(idParam){
         M.toast({html: `Parametro Passado na Agenda ` + idParam,displayLength: 1500, classes:'green'});
         this.getAgenda(idParam); 
+       
         
       }
     
@@ -65,6 +66,7 @@ export class FormAgendaPageComponent implements OnInit {
   ngAfterViewInit(){
     var elements = document.querySelectorAll('select');
     M.FormSelect.init(elements,{});
+    
   }
 
   getAgenda(id:string){
@@ -74,7 +76,7 @@ export class FormAgendaPageComponent implements OnInit {
           this.agenda = agd;
         },
         error: (error) =>{
-          M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
         }
       }); 
   }
@@ -119,7 +121,7 @@ export class FormAgendaPageComponent implements OnInit {
         this.servicos = servs;
       },
       error:(error) =>{
-        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
       }
   });  
 
@@ -161,7 +163,7 @@ saveAgenda() {
       M.toast({ html: `Registro Salvo com sucesso! - ` + agd.id, displayLength: 1500, classes: 'green' });
     },
     error:(error) => {
-      M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+      M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
     }
    });     
    
@@ -172,7 +174,7 @@ saveAgenda() {
        M.toast({ html: `Registro alterado com sucesso! - ` + agd.id , displayLength: 1500, classes: 'green' });
     },
       error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
     }
    });
   }

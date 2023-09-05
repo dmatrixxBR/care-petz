@@ -33,9 +33,9 @@
                 id="dataAgenda" 
                 type="text" 
                 class="validate"
-                [(ngModel)]="this.agenda.dataAgenda" 
-                name="dataAgenda"
                 pattern="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$"
+                [(ngModel)]="this.agenda.dataAgenda" 
+                name="dataAgenda"                
                 #dataagenda="ngModel"
                 required
                 >
@@ -108,7 +108,7 @@
             <div class="input-field col s3">
               <input 
                 id="valorServico" 
-                type="number" 
+                type="text" 
                 class="validate"
                 [(ngModel)]="this.agenda.valorServico" 
                 pattern="^(?!0\.00$)(?!0$)\d+(\.\d{2})?$"

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, lastValueFrom, throwError } from 'rxjs';
 import { Agenda } from '../models/agenda';
+import { ErrorUtils } from '../util/error-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +27,8 @@ export class AgendaPromiseService {
 
   allObs(): Observable<Agenda[]>{
     return this.httpClient.get<Agenda[]>(`${this.url}`).pipe(
-      catchError((error: any) =>{
-        return throwError(error);
-      })
-    )
+      catchError(ErrorUtils.handleError)
+    );
   }
 
   getByID(id: string): Promise<Agenda> {
@@ -38,9 +37,7 @@ export class AgendaPromiseService {
 
   getByIDObs(id: string): Observable<Agenda> {
     return this.httpClient.get<Agenda>(`${this.url}/${id}`).pipe(
-      catchError((error: any) => {
-        return throwError(error);
-      })
+      catchError(ErrorUtils.handleError)
     );
   }
 
@@ -60,9 +57,7 @@ export class AgendaPromiseService {
         JSON.stringify(agenda), 
         this.httpOptions)
       .pipe(
-        catchError((error: any) => {
-          return throwError(error);
-        })
+        catchError(ErrorUtils.handleError)
       );
   }
 
@@ -83,9 +78,7 @@ export class AgendaPromiseService {
         JSON.stringify(agenda), 
         this.httpOptions)
       .pipe(
-        catchError((error: any) => {
-          return throwError(error);
-        })
+        catchError(ErrorUtils.handleError)
       );
   }
 
@@ -97,9 +90,7 @@ export class AgendaPromiseService {
     return this.httpClient.delete(
       `${this.url}/${agenda.id}`)
       .pipe(
-      catchError((error: any) => {
-        return throwError(error);
-      })
+        catchError(ErrorUtils.handleError)
     );
   }
 

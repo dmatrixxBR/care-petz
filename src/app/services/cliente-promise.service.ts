@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, lastValueFrom, Observable, throwError } from 'rxjs';
 import { Cliente } from '../models/cliente';
+import { ErrorUtils } from '../util/error-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +26,8 @@ export class ClientePromiseService {
 
   allObs(): Observable<Cliente[]>{
     return this.httpClient.get<Cliente[]>(`${this.url}`).pipe(
-      catchError((error: any) =>{
-        return throwError(error);
-      })
-    )
+      catchError(ErrorUtils.handleError)
+    );
   }
 
   getByID(id: string): Promise<Cliente> {
@@ -38,9 +37,7 @@ export class ClientePromiseService {
 
   getByIDObs(id: string): Observable<Cliente> {
     return this.httpClient.get<Cliente>(`${this.url}/${id}`).pipe(
-      catchError((error: any) => {
-        return throwError(error);
-      })
+      catchError(ErrorUtils.handleError)
     );
   }
 
@@ -60,9 +57,7 @@ export class ClientePromiseService {
         JSON.stringify(cliente), 
         this.httpOptions)
       .pipe(
-        catchError((error: any) => {
-          return throwError(error);
-        })
+        catchError(ErrorUtils.handleError)
       );
   }
 
@@ -82,9 +77,7 @@ export class ClientePromiseService {
         JSON.stringify(cliente), 
         this.httpOptions)
       .pipe(
-        catchError((error: any) => {
-          return throwError(error);
-        })
+        catchError(ErrorUtils.handleError)
       );
   }
 
@@ -96,9 +89,7 @@ export class ClientePromiseService {
     return this.httpClient.delete(
       `${this.url}/${cliente.id}`)
       .pipe(
-      catchError((error: any) => {
-        return throwError(error);
-      })
+        catchError(ErrorUtils.handleError)
     );
   }
 

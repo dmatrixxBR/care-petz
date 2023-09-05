@@ -1,3 +1,4 @@
+import { ErrorUtils } from './../util/error-utils';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom, Observable,catchError,throwError } from 'rxjs';
@@ -26,10 +27,8 @@ export class ServicoPromiseService {
 
   allObs(): Observable<Servico[]>{
     return this.httpClient.get<Servico[]>(`${this.url}`).pipe(
-      catchError((error: any) =>{
-        return throwError(error);
-      })
-    )
+      catchError(ErrorUtils.handleError)
+    );
   }
 
   getByID(id: string): Promise<Servico> {
@@ -38,9 +37,7 @@ export class ServicoPromiseService {
 
   getByIDObs(id: string): Observable<Servico> {
     return this.httpClient.get<Servico>(`${this.url}/${id}`).pipe(
-      catchError((error: any) => {
-        return throwError(error);
-      })
+      catchError(ErrorUtils.handleError)
     );
   }
 
@@ -61,9 +58,7 @@ export class ServicoPromiseService {
         JSON.stringify(servico), 
         this.httpOptions)
       .pipe(
-        catchError((error: any) => {
-          return throwError(error);
-        })
+        catchError(ErrorUtils.handleError)
       );
   }
 
@@ -85,9 +80,7 @@ export class ServicoPromiseService {
         JSON.stringify(servico), 
         this.httpOptions)
       .pipe(
-        catchError((error: any) => {
-          return throwError(error);
-        })
+        catchError(ErrorUtils.handleError)
       );
   }
 
@@ -100,9 +93,7 @@ export class ServicoPromiseService {
     return this.httpClient.delete(
       `${this.url}/${servico.id}`)
       .pipe(
-      catchError((error: any) => {
-        return throwError(error);
-      })
+        catchError(ErrorUtils.handleError)
     );
   }
 
