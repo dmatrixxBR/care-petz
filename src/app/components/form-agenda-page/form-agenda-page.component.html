@@ -76,7 +76,7 @@
               [compareWith]="compareWithClients"
               required
               >                             
-              <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{ cliente.nomeCliente }}</option>
+              <option *ngFor="let cliente of clientes" [ngValue]="cliente">{{ cliente.nomeCliente | uppercase }}</option>
             </select >
              <div class="red-text" [hidden] = "clientselect.valid || clientselect.untouched">
               Por favor informar o cliente
@@ -97,7 +97,7 @@
              (change)="this.updateValorServico()"
              required
              >               
-             <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico }}</option>
+             <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricaoServico | uppercase  }}</option>
            </select >
            <div class="red-text" [hidden] = "serviceselect.valid || serviceselect.untouched">
             Por favor informar o servico
@@ -113,9 +113,10 @@
                 [(ngModel)]="this.agenda.valorServico" 
                 pattern="^(?!0\.00$)(?!0$)\d+(\.\d{2})?$"
                 name="valorServico"
-                #valorservico="ngModel"
+                #valorservico="ngModel"                
                 required
                 >
+                
               <label for="valorServico">Valor</label>
               <div class="red-text" [hidden] = "valorservico.valid || valorservico.untouched">
                 Por favor informar o valor corretamente!

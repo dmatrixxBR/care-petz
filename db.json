@@ -43,5 +43,86 @@
       "id": 5
     }
   ],
-  "agendas": []
+  "agendas": [
+    {
+      "codigoAgenda": "65dd4466-ab20-4a70-80c2-3ee8e45eb2e8",
+      "horaAgenda": "23:21",
+      "dataAgenda": "04/09/2023",
+      "clienteId": {
+        "id": 3,
+        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
+        "nomeCliente": "Nencil Blanco",
+        "celularCliente": "(21) 99789-6788",
+        "emailCliente": "nencil.blanco@gmail.com"
+      },
+      "servicoId": {
+        "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
+        "descricaoServico": "PETZ DELIVERY",
+        "valorServico": 30,
+        "id": 3
+      },
+      "valorServico": 30,
+      "id": 1
+    },
+    {
+      "codigoAgenda": "dc2be028-32ba-42cd-9132-4d17c2ae4c8b",
+      "horaAgenda": "23:21",
+      "dataAgenda": "04/09/2023",
+      "clienteId": {
+        "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
+        "nomeCliente": "Danny Boy",
+        "celularCliente": "(13) 88640-5359",
+        "emailCliente": "danny.boy@linx.com.br",
+        "id": 4
+      },
+      "servicoId": {
+        "codigoServico": "5f5d96ca-16fe-4834-b457-229b64ae2a0d",
+        "descricaoServico": "PETZ CARE",
+        "valorServico": 50,
+        "id": 1
+      },
+      "valorServico": 50,
+      "id": 2
+    },
+    {
+      "codigoAgenda": "47e7b265-292e-46a5-adf8-3680d90741a9",
+      "horaAgenda": "23:21",
+      "dataAgenda": "04/09/2023",
+      "clienteId": {
+        "id": 3,
+        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
+        "nomeCliente": "Nencil Blanco",
+        "celularCliente": "(21) 99789-6788",
+        "emailCliente": "nencil.blanco@gmail.com"
+      },
+      "servicoId": {
+        "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
+        "descricaoServico": "PETZ DELIVERY",
+        "valorServico": 30,
+        "id": 3
+      },
+      "valorServico": 30,
+      "id": 3
+    },
+    {
+      "codigoAgenda": "7e36eff7-d3d8-4f4d-abcf-0901f7b093cd",
+      "horaAgenda": "23:41",
+      "dataAgenda": "04/09/2023",
+      "clienteId": {
+        "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
+        "nomeCliente": "Danny Boy",
+        "celularCliente": "(13) 88640-5359",
+        "emailCliente": "danny.boy@linx.com.br",
+        "id": 4
+      },
+      "servicoId": {
+        "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
+        "descricaoServico": "PETZ DELIVERY",
+        "valorServico": 30,
+        "id": 3
+      },
+      "valorServico": 30,
+      "id": 4
+    }
+  ]
 }

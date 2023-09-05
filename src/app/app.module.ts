@@ -1,7 +1,7 @@
-import { NgModule,DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import ptBr from '@angular/common/locales/pt';
+//import ptBr from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,11 +15,11 @@ import { FormClientesPageComponent } from './components/form-clientes-page/form-
 import { FormClientesListPageComponent } from './components/form-clientes-list-page/form-clientes-list-page.component';
 import { FormAgendaPageComponent } from './components/form-agenda-page/form-agenda-page.component';
 import { FormAgendaListPageComponent } from './components/form-agenda-list-page/form-agenda-list-page.component';
-import { registerLocaleData } from '@angular/common';
+//import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-registerLocaleData(ptBr);
+//registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [
@@ -43,8 +43,7 @@ registerLocaleData(ptBr);
     HttpClientModule,
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    
   ],
   bootstrap: [AppComponent]
 })
