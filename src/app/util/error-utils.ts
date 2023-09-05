@@ -24,7 +24,7 @@ export class ErrorUtils {
        
       }
     
-      private static getServerErrorMessage(error: HttpErrorResponse) {
+      public static getServerErrorMessage(error: HttpErrorResponse) {
         switch (error.status) {
           case 404: {
             return `O recurso informado não foi encontrado!`;
