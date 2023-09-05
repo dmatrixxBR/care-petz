@@ -57,8 +57,48 @@
   ],
   "agendas": [
     {
-      "codigoAgenda": "3b0af91a-f68e-4e6c-8e49-0fb0324ecc8a",
-      "horaAgenda": "12:30",
+      "codigoAgenda": "aa97b81c-e784-4e2f-b209-e32f09710aa5",
+      "horaAgenda": "19:12",
+      "dataAgenda": "05/09/2023",
+      "clienteId": {
+        "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
+        "nomeCliente": "Danny Boy",
+        "celularCliente": "(13) 99678-6012",
+        "emailCliente": "danny.boy@linx.com.br",
+        "id": 4
+      },
+      "servicoId": {
+        "codigoServico": "a2326c91-5194-40b6-b241-dae93f6ee9d2",
+        "descricaoServico": "PETZ VETZ",
+        "valorServico": 120,
+        "id": 5
+      },
+      "valorServico": 120,
+      "id": 1
+    },
+    {
+      "codigoAgenda": "06fdce05-f48b-42e0-a238-3e7f8bf55281",
+      "horaAgenda": "19:13",
+      "dataAgenda": "05/09/2023",
+      "clienteId": {
+        "id": 3,
+        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
+        "nomeCliente": "Nencil Blanco",
+        "celularCliente": "(21) 99789-6788",
+        "emailCliente": "nencil.blanco@gmail.com"
+      },
+      "servicoId": {
+        "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
+        "descricaoServico": "PETZ DELIVERY",
+        "valorServico": 30,
+        "id": 3
+      },
+      "valorServico": 30,
+      "id": 2
+    },
+    {
+      "codigoAgenda": "86629efa-0cda-4fa1-8605-fa09b46a4aef",
+      "horaAgenda": "19:13",
       "dataAgenda": "05/09/2023",
       "clienteId": {
         "id": 1,
@@ -73,52 +113,12 @@
         "valorServico": 50,
         "id": 1
       },
-      "valorServico": 50,
-      "id": 1
-    },
-    {
-      "codigoAgenda": "6605a061-9f09-4c76-899d-10fac3443452",
-      "horaAgenda": "12:30",
-      "dataAgenda": "05/09/2023",
-      "clienteId": {
-        "id": 3,
-        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
-        "nomeCliente": "Nencil Blanco",
-        "celularCliente": "(21) 99789-6788",
-        "emailCliente": "nencil.blanco@gmail.com"
-      },
-      "servicoId": {
-        "codigoServico": "a2326c91-5194-40b6-b241-dae93f6ee9d2",
-        "descricaoServico": "PETZ VETZ",
-        "valorServico": 120,
-        "id": 5
-      },
-      "valorServico": 120,
-      "id": 2
-    },
-    {
-      "codigoAgenda": "58a3f127-95a8-405a-8fc4-0735e87cebd3",
-      "horaAgenda": "12:30",
-      "dataAgenda": "05/09/2023",
-      "clienteId": {
-        "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
-        "nomeCliente": "Danny Boy",
-        "celularCliente": "(13) 99678-6012",
-        "emailCliente": "danny.boy@linx.com.br",
-        "id": 4
-      },
-      "servicoId": {
-        "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
-        "descricaoServico": "PETZ DELIVERY",
-        "valorServico": 30,
-        "id": 3
-      },
-      "valorServico": 20.25,
+      "valorServico": 30,
       "id": 3
     },
     {
-      "codigoAgenda": "e4ade7e4-dc0b-416e-80bb-dc43476516df",
-      "horaAgenda": "12:30",
+      "codigoAgenda": "dd764ddd-113e-47c9-9ad6-6d7299b2d2d7",
+      "horaAgenda": "19:13",
       "dataAgenda": "05/09/2023",
       "clienteId": {
         "codigoCliente": "0bafe49f-5b60-4b94-abd6-fb772cd8380a",
