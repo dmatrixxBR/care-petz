@@ -30,7 +30,7 @@ https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=
 - [x] Cadastrar uma entidade no JSON Server.
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf. 
-- [ ] Formatar a apresentação de dados com Pipes. 
+- [x] Formatar a apresentação de dados com Pipes. 
 - [ ] Build e deploy da aplicação. 
 
 ## Manual de execução
