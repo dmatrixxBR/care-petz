@@ -54,7 +54,9 @@ export class FormAgendaListPageComponent implements OnInit {
         this.getData();
       },
       error:(error) => {
-        alert (error);
+        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+        this.getData();
+        
       } 
     });   
   }
@@ -67,7 +69,7 @@ export class FormAgendaListPageComponent implements OnInit {
           this.agendasCounter = agds.length;
         },
         error:(error) =>{
-          alert (error);
+          M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
         }
   
     });  

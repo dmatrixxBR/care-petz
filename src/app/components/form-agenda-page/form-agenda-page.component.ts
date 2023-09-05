@@ -74,7 +74,7 @@ export class FormAgendaPageComponent implements OnInit {
           this.agenda = agd;
         },
         error: (error) =>{
-          alert(error);
+          M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
         }
       }); 
   }
@@ -119,7 +119,7 @@ export class FormAgendaPageComponent implements OnInit {
         this.servicos = servs;
       },
       error:(error) =>{
-        alert (error);
+        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
       }
   });  
 
@@ -161,7 +161,7 @@ saveAgenda() {
       M.toast({ html: `Registro Salvo com sucesso! - ` + agd.id, displayLength: 1500, classes: 'green' });
     },
     error:(error) => {
-      alert (error);
+      M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
     }
    });     
    
@@ -172,7 +172,7 @@ saveAgenda() {
        M.toast({ html: `Registro alterado com sucesso! - ` + agd.id , displayLength: 1500, classes: 'green' });
     },
       error:(error) => {
-         alert (error);
+        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
     }
    });
   }

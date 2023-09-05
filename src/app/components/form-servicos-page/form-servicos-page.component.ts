@@ -44,7 +44,7 @@ export class FormServicosPageComponent implements OnInit {
           this.servico = serv;
         },
         error: (error) =>{
-          alert(error);
+          M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
         }
       })
     }
@@ -72,7 +72,7 @@ export class FormServicosPageComponent implements OnInit {
         M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
       },
       error:(error) => {
-        alert (error);
+        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
       }
      });     
      
@@ -83,7 +83,7 @@ export class FormServicosPageComponent implements OnInit {
          M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
       },
         error:(error) => {
-           alert (error);
+          M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
       }
      });
     }

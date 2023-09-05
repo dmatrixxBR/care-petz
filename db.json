@@ -43,5 +43,46 @@
       "id": 6
     }
   ],
-  "agendas": []
+  "agendas": [
+    {
+      "codigoAgenda": "3c982798-3fa6-4896-90ea-c284df0c6b82",
+      "horaAgenda": "12:15",
+      "dataAgenda": "05/09/2023",
+      "clienteId": {
+        "id": 1,
+        "codigoCliente": "99ba3cac-b666-4813-94a7-9a4304b571fc",
+        "nomeCliente": "John Foo",
+        "celularCliente": "(13) 99678-6110",
+        "emailCliente": "johnfoo@foo.com.br"
+      },
+      "servicoId": {
+        "codigoServico": "5f5d96ca-16fe-4834-b457-229b64ae2a0d",
+        "descricaoServico": "PETZ CARE",
+        "valorServico": 50,
+        "id": 1
+      },
+      "valorServico": 50,
+      "id": 1
+    },
+    {
+      "codigoAgenda": "6a26d09e-90c2-4e28-bc6c-2b213e8dfa49",
+      "horaAgenda": "12:15",
+      "dataAgenda": "05/09/2023",
+      "clienteId": {
+        "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
+        "nomeCliente": "Danny Boy",
+        "celularCliente": "(13) 99678-6012",
+        "emailCliente": "danny.boy@linx.com.br",
+        "id": 4
+      },
+      "servicoId": {
+        "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
+        "descricaoServico": "PETZ DELIVERY",
+        "valorServico": 30,
+        "id": 3
+      },
+      "valorServico": 30,
+      "id": 2
+    }
+  ]
 }

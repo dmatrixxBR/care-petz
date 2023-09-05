@@ -42,7 +42,7 @@ export class FormClientesPageComponent implements OnInit {
           this.cliente = cli;
         },
         error: (error) =>{
-          alert(error);
+          M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
         }
       })
     }
@@ -71,7 +71,7 @@ export class FormClientesPageComponent implements OnInit {
         M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
       },
       error:(error) => {
-        alert (error);
+        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
       }
      });     
      
@@ -82,7 +82,7 @@ export class FormClientesPageComponent implements OnInit {
          M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
       },
         error:(error) => {
-           alert (error);
+          M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
       }
      });
     }

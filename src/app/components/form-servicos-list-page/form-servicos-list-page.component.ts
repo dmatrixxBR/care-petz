@@ -50,7 +50,7 @@ export class FormServicosListPageComponent implements OnInit {
         this.getData();
       },
       error:(error) => {
-        alert (error);
+        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
       } 
     });   
   }
@@ -63,7 +63,7 @@ export class FormServicosListPageComponent implements OnInit {
         this.servicosCounter = servs.length;
       },
       error:(error) =>{
-        alert (error);
+        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
       }
 
   });  
