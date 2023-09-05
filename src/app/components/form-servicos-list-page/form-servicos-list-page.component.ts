@@ -1,3 +1,4 @@
+import { ErrorUtils } from './../../util/error-utils';
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Servico } from 'src/app/models/servico';
@@ -49,8 +50,9 @@ export class FormServicosListPageComponent implements OnInit {
         M.toast({html: `Registro Excluido com sucesso ` ,displayLength: 1500, classes:'green'});
         this.getData();
       },
-      error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error ,displayLength: 1500, classes:'red'});
+      error:(error) => {        
+        M.toast({html: `Erro ocorrido => `+ 
+        ErrorUtils.getServerErrorMessage(error) ,displayLength: 1500, classes:'red'});
       } 
     });   
   }
