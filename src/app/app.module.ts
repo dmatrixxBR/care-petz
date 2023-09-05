@@ -18,7 +18,7 @@ import { FormAgendaListPageComponent } from './components/form-agenda-list-page/
 //import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 //registerLocaleData(ptBr);
 
@@ -42,9 +42,10 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
   providers: [
-      provideEnvironmentNgxMask(),    
   ],
   bootstrap: [AppComponent]
 })

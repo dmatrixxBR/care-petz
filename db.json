@@ -41,6 +41,13 @@
       "celularCliente": "(13) 99567-1230",
       "emailCliente": "jose@garcia.com.br",
       "id": 5
+    },
+    {
+      "codigoCliente": "0bafe49f-5b60-4b94-abd6-fb772cd8380a",
+      "celularCliente": "(21) 99789-6770",
+      "nomeCliente": "Beth Boop",
+      "emailCliente": "boop@bettyboop.com",
+      "id": 6
     }
   ],
   "agendas": [
