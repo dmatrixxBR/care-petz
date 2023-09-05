@@ -24,7 +24,7 @@
                 <td>{{agenda.codigoAgenda}}</td>
                 <td>{{agenda.dataAgenda | date: "dd/MM/yyyy HH:mm:ss"}}</td>
                 <td>{{agenda.horaAgenda}}</td>                
-                <td>{{agenda.clienteId.nomeCliente}}</td>
+                <td>{{agenda.clienteId.nomeCliente | uppercase }}</td>
                 <td>{{agenda.servicoId.descricaoServico}}</td>
                 <td>{{agenda.valorServico | currency: "BRL"}}</td>
                 <td [width]="100">

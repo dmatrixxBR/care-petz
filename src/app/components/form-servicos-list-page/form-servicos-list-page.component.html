@@ -20,7 +20,7 @@
               <tr *ngFor="let servico of this.servicos">
                 <td [width]="400">{{servico.codigoServico}}</td>
                 <td>{{servico.descricaoServico}}</td>
-                <td>{{servico.valorServico}}</td>
+                <td>{{servico.valorServico | currency: "BRL"}}</td>
                 <td [width]="100">
                   <a (click)="onClickItem(servico)" class="secondary-content pointer"><i
                       class="material-icons left white-text">update</i></a>                     
