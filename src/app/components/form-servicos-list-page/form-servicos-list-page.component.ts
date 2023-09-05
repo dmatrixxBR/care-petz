@@ -13,7 +13,7 @@ export class FormServicosListPageComponent implements OnInit {
   servicos!: Servico[];
   servicosCounter:number=0;
   title ='Lista Serviços';
-  servico$! : Observable<Object>;
+  servico$! : Observable<Servico>;
   @Output() activate = new EventEmitter<any>();
   
   constructor(private router: Router,              
@@ -52,17 +52,11 @@ export class FormServicosListPageComponent implements OnInit {
       error:(error) => {
         alert (error);
       } 
-    });
-
-
-   
+    });   
   }
   
 
   getData() {
-    //this.servicos = this.localStorageServicosService.getData();
-    //this.servicosCounter = this.servicos.length;
-
     this.apiServico.allObs().subscribe({
       next:(servs) => {
         this.servicos = servs;

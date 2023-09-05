@@ -1,5 +1,6 @@
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 
@@ -13,6 +14,7 @@ export class FormClientesListPageComponent implements OnInit {
   clientes!: Cliente[];
   clientesCounter:number = 0;
   title : string = 'Lista Clientes';
+  cliente$ ! : Observable<Cliente>;
   @Output() activate = new EventEmitter<string>();
 
   constructor(private route: ActivatedRoute,
@@ -43,24 +45,30 @@ export class FormClientesListPageComponent implements OnInit {
       return;
     }
   
-    try {
-      await this.apiCliente.delete(cliente);
-      M.toast({html: `Registro Excluido!`, displayLength: 1500, classes: 'green'});
-      this.getData();
-      return true;
-    } catch (error) {
-      console.error('Erro ao excluir o registro:', error);
-      return false;
-    }
-  }
+    this.cliente$ = this.apiCliente.deleteObs(cliente);
 
+    this.cliente$.subscribe({
+      next: (cli) =>{
+        M.toast({html: `Registro Excluido com sucesso ` ,displayLength: 1500, classes:'green'});
+        this.getData();
+      },
+      error:(error) => {
+        alert (error);
+      } 
+    }); 
+  }
+  
   getData(){
-   // this.clientes = this.localStorageCliente.getData();
-   // this.clientesCounter = this.clientes.length;
-   this.apiCliente.all().then((clis: Cliente[]) =>{
-    this.clientes = clis;
-    this.clientesCounter = clis.length;
-  });
+    this.apiCliente.allObs().subscribe({
+      next:(clis) => {
+        this.clientes = clis;
+        this.clientesCounter = clis.length;
+      },
+      error:(error) =>{
+        alert (error);
+      }
+
+  });  
   }
 
 

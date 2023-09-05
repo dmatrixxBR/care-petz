@@ -8,6 +8,7 @@ import * as M from 'materialize-css';
 import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
 import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 import { AgendaPromiseService } from 'src/app/services/agenda-promise.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class FormAgendaPageComponent implements OnInit {
   clientes!:Cliente[];
   servicos!:Servico[];
   agendas!:Agenda[];
+  agenda$!: Observable<Agenda>;
 
   title ='Agenda';
 
@@ -44,18 +46,13 @@ export class FormAgendaPageComponent implements OnInit {
     this.setEmptyAgenda();
     this.loadClientList();
     this.loadServiceList();
-    this.loadAgendaList();
     let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
         M.toast({html: `Parametro Passado na Agenda ` + idParam,displayLength: 1500, classes:'green'});
-        //this.agenda = this.localStorageAgenda.getById(idParam);
-        this.apiAgenda.getByID(idParam)
-       .then((agd:Agenda) => {
-        this.agenda = agd;
-       }); 
+        this.getAgenda(idParam); 
         
       }
-     // M.AutoInit(); 
+    
 
       const servicoSelect = document.getElementById('servicoAgenda') as HTMLSelectElement;
       servicoSelect.addEventListener('change', () => {
@@ -64,9 +61,22 @@ export class FormAgendaPageComponent implements OnInit {
 
   }
 
+
   ngAfterViewInit(){
     var elements = document.querySelectorAll('select');
     M.FormSelect.init(elements,{});
+  }
+
+  getAgenda(id:string){
+    this.agenda$ = this.apiAgenda.getByIDObs(id);
+      this.agenda$.subscribe({
+        next:(agd) => {
+          this.agenda = agd;
+        },
+        error: (error) =>{
+          alert(error);
+        }
+      }); 
   }
 
   setEmptyAgenda() {
@@ -83,10 +93,16 @@ export class FormAgendaPageComponent implements OnInit {
   }
 
   async loadClientList(){
-  //  this.clientes = this.localStorageCliente.getData();
-  this.apiCliente.all().then((clis: Cliente[]) =>{
-    this.clientes = clis; 
-  });
+
+  this.apiCliente.allObs().subscribe({
+    next:(clis) => {
+      this.clientes = clis;  
+    },
+    error:(error) =>{
+      alert (error);
+    }
+
+}); 
   
     console.log(this.clientes);
   
@@ -98,23 +114,22 @@ export class FormAgendaPageComponent implements OnInit {
   
  async loadServiceList(){
   //  this.servicos = this.localStorageServico.getData();
-    this.apiServico.all().then((servs: Servico[]) =>{
-      this.servicos = servs; 
-    });
-    
+     this.apiServico.allObs().subscribe({
+      next:(servs) => {
+        this.servicos = servs;
+      },
+      error:(error) =>{
+        alert (error);
+      }
+  });  
+
     console.log(this.servicos);
     setTimeout(()=> {
       M.FormSelect.init(this.serviceSelect.nativeElement);
      },100);
   }
 
-  async loadAgendaList(){
-    //this.agendas = this.localStorageAgenda.getData();
-    this.apiAgenda.all().then((agds: Agenda[]) =>{
-      this.agendas = agds; 
-    });    
-    console.log(this.agendas);
-  }
+  
 
   compareWithClients(object1: Cliente, object2: Cliente): boolean {
     return object1 && object2 ?  object1.codigoCliente === object2.codigoCliente : object1 === object2 ;
@@ -134,40 +149,34 @@ export class FormAgendaPageComponent implements OnInit {
   }
 }
 
-//saveAgenda(){
-//  if (!this.localStorageAgenda.isExistAgenda(this.agenda.codigoAgenda)) {
-//      this.agenda.id = this.localStorageAgenda.generateAndStoreSequentialValue();
-//      this.localStorageAgenda.create(this.agenda);      
-//  }  else {
-//    this.localStorageAgenda.update(this.agenda);
-//  } 
-//  M.toast({html: `Agendamento Salvo com sucesso!`,displayLength: 1500, classes:'green'});
-//  this.form.reset();
-//}
+
 
 saveAgenda() {
   if (!this.agenda.id) {
-    // Novo, usar o método save
-    this.apiAgenda.save(this.agenda)
-      .then(savedAgenda => {
-        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
-        this.form.reset();
-      })
-      .catch(error => {
-        console.error('Erro ao salvar o registro:', error);
-      });
+    // Novo serviço, usar o método save
+   this.agenda$ = this.apiAgenda.saveObs(this.agenda);
+   
+   this.agenda$.subscribe({
+    next:(agd) => {
+      M.toast({ html: `Registro Salvo com sucesso! - ` + agd.id, displayLength: 1500, classes: 'green' });
+    },
+    error:(error) => {
+      alert (error);
+    }
+   });     
+   
   } else {
-    //  existente, usar o método update
-    this.apiAgenda.update(this.agenda)
-      .then(updatedAgenda => {
-        M.toast({ html: `Registro Atualizado com sucesso!`, displayLength: 1500, classes: 'green' });
-        this.form.reset();
-      })
-      .catch(error => {
-        console.error('Erro ao atualizar o registro:', error);
-        console.log(this.agenda);
-      });
+    this.agenda$ = this.apiAgenda.updateObs(this.agenda);     
+    this.agenda$.subscribe({
+      next:(agd) => {
+       M.toast({ html: `Registro alterado com sucesso! - ` + agd.id , displayLength: 1500, classes: 'green' });
+    },
+      error:(error) => {
+         alert (error);
+    }
+   });
   }
+  this.form.reset();
 }
 
 

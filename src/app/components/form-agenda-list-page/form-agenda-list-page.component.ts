@@ -1,5 +1,6 @@
 import { Component,EventEmitter,OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Agenda } from 'src/app/models/agenda';
 import { AgendaPromiseService } from 'src/app/services/agenda-promise.service';
 
@@ -13,6 +14,7 @@ export class FormAgendaListPageComponent implements OnInit {
   agendas! :Agenda[];
   agendasCounter: number = 0;
   title ='Lista Agenda';
+  agenda$ !: Observable<Agenda>;
   @Output() activate = new EventEmitter<any>();
   constructor( private route: ActivatedRoute,
                private router: Router,
@@ -37,30 +39,38 @@ export class FormAgendaListPageComponent implements OnInit {
     this.router.navigate(['/petz/agenda',agenda.id]);    
   }
 
-  async onClickItemDelete(agenda:Agenda) {
+   onClickItemDelete(agenda:Agenda) {
     const confirmation = window.confirm('Excluir Registro?' + agenda.codigoAgenda);
     if (!confirmation) {
       return;
     }
-  
-    try {
-      await this.apiAgenda.delete(agenda);
-      M.toast({html: `Registro Excluido!`, displayLength: 1500, classes: 'green'});
-      this.getData();
-      return true;
-    } catch (error) {
-      console.error('Erro ao excluir o registro:', error);
-      return false;
-    }
+    
+    this.agenda$ = this.apiAgenda.deleteObs(agenda);
+
+
+    this.agenda$.subscribe({
+      next: (agd) =>{
+        M.toast({html: `Registro Excluido com sucesso`,displayLength: 1500, classes:'green'});
+        this.getData();
+      },
+      error:(error) => {
+        alert (error);
+      } 
+    });   
   }
 
     getData(){
-    //this.agendas = this.localStorageAgenda.getData();
-    //this.agendasCounter = this.agendas.length;
-    this.apiAgenda.all().then((agds: Agenda[]) =>{
-      this.agendas = agds;
-      this.agendasCounter = agds.length;
-    });
+      
+      this.apiAgenda.allObs().subscribe({
+        next:(agds) => {
+          this.agendas = agds;
+          this.agendasCounter = agds.length;
+        },
+        error:(error) =>{
+          alert (error);
+        }
+  
+    });  
 
   }
 

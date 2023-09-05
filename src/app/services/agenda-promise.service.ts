@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
+import { Observable, catchError, lastValueFrom, throwError } from 'rxjs';
 import { Agenda } from '../models/agenda';
 
 @Injectable({
@@ -24,8 +24,24 @@ export class AgendaPromiseService {
     return lastValueFrom(this.httpClient.get<Agenda[]>(`${this.url}`));
   }
 
+  allObs(): Observable<Agenda[]>{
+    return this.httpClient.get<Agenda[]>(`${this.url}`).pipe(
+      catchError((error: any) =>{
+        return throwError(error);
+      })
+    )
+  }
+
   getByID(id: string): Promise<Agenda> {
     return lastValueFrom(this.httpClient.get<Agenda>(`${this.url}/${id}`));
+  }
+
+  getByIDObs(id: string): Observable<Agenda> {
+    return this.httpClient.get<Agenda>(`${this.url}/${id}`).pipe(
+      catchError((error: any) => {
+        return throwError(error);
+      })
+    );
   }
 
   save(agenda: Agenda): Promise<Agenda> {
@@ -38,6 +54,19 @@ export class AgendaPromiseService {
     );
   }
 
+  saveObs(agenda: Agenda): Observable<Agenda> {
+    return this.httpClient
+      .post<Agenda>(this.url, 
+        JSON.stringify(agenda), 
+        this.httpOptions)
+      .pipe(
+        catchError((error: any) => {
+          return throwError(error);
+        })
+      );
+  }
+
+
   update(agenda: Agenda): Promise<Agenda> {
     return lastValueFrom(
       this.httpClient.put<Agenda>(
@@ -48,8 +77,30 @@ export class AgendaPromiseService {
     );
   }
 
+  updateObs(agenda: Agenda): Observable<Agenda> {
+    return this.httpClient
+      .put<Agenda>(`${this.url}/${agenda.id}`, 
+        JSON.stringify(agenda), 
+        this.httpOptions)
+      .pipe(
+        catchError((error: any) => {
+          return throwError(error);
+        })
+      );
+  }
+
   delete(agenda: Agenda) {
     return lastValueFrom(this.httpClient.delete(`${this.url}/${agenda.id}`));
+  }
+
+  deleteObs(agenda: Agenda): Observable<any> {
+    return this.httpClient.delete(
+      `${this.url}/${agenda.id}`)
+      .pipe(
+      catchError((error: any) => {
+        return throwError(error);
+      })
+    );
   }
 
 }

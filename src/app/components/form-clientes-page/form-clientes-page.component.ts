@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from './../../models/cliente';
 import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 import * as M from 'materialize-css';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-clientes-page',
@@ -14,6 +15,7 @@ export class FormClientesPageComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
   cliente!:Cliente;
   title ='Clientes';
+  cliente$!: Observable<Cliente>;
   @Output() activate = new EventEmitter<string>();
   
   constructor(private router: Router,
@@ -28,14 +30,23 @@ export class FormClientesPageComponent implements OnInit {
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
         M.toast({html: `Parametro Passado no Cliente ` + idParam,displayLength: 1500, classes:'green'});
-        //this.cliente = this.localStorageClienteService.getById(idParam);
-        this.apiCliente.getByID(idParam)
-        .then((cli:Cliente) => {
-         this.cliente = cli;
-        });
+        this.getCliente(idParam);
       }
     }
 
+    getCliente(id:string){
+      this.cliente$ = this.apiCliente.getByIDObs(id);
+
+      this.cliente$.subscribe({
+        next:(cli) => {
+          this.cliente = cli;
+        },
+        error: (error) =>{
+          alert(error);
+        }
+      })
+    }
+    
     setEmptyCliente() {
       this.cliente = new Cliente();
     }
@@ -49,41 +60,36 @@ export class FormClientesPageComponent implements OnInit {
       this.router.navigate(['/petz/clientes/lista']);
     }
 
-   // saveCliente(){
-   //   if (!this.localStorageClienteService.isExistCliente(this.cliente.codigoCliente)) {
-   //       this.cliente.id = this.localStorageClienteService.generateAndStoreSequentialValue();
-   //       this.localStorageClienteService.create(this.cliente);      
-   //   }  else {
-   //     this.localStorageClienteService.update(this.cliente);
-   //   } 
-   //   M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
-   //   this.form.reset();
-   // }
-
+   
    saveCliente() {
     if (!this.cliente.id) {
       // Novo serviço, usar o método save
-      this.apiCliente.save(this.cliente)
-        .then(savedCliente => {
-          M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
-          this.form.reset();
-        })
-        .catch(error => {
-          console.error('Erro ao salvar o registro:', error);
-        });
+     this.cliente$ = this.apiCliente.saveObs(this.cliente);
+     
+     this.cliente$.subscribe({
+      next:(cli) => {
+        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
+      },
+      error:(error) => {
+        alert (error);
+      }
+     });     
+     
     } else {
-      // Serviço existente, usar o método update
-      this.apiCliente.update(this.cliente)
-        .then(updatedCliente => {
-          M.toast({ html: `Registro Atualizado com sucesso!`, displayLength: 1500, classes: 'green' });
-          this.form.reset();
-        })
-        .catch(error => {
-          console.error('Erro ao atualizar o registro:', error);
-          console.log(this.cliente);
-        });
+      this.cliente$ = this.apiCliente.updateObs(this.cliente);     
+      this.cliente$.subscribe({
+        next:(cli) => {
+         M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
+      },
+        error:(error) => {
+           alert (error);
+      }
+     });
     }
-  }
+    this.form.reset();
+
+   
+ }
 
    
 }

@@ -62,17 +62,6 @@ export class FormServicosPageComponent implements OnInit {
       this.router.navigate(['/petz/servicos/lista']);
     }
 
-  //  saveServico(){
-  //    if (!this.localStorageServico.isExistServico(this.servico.codigoServico)) {
-  //        this.servico.id = this.localStorageServico.generateAndStoreSequentialValue();
-  //        this.localStorageServico.create(this.servico);      
-  //    }  else {
-  //      this.localStorageServico.update(this.servico);
-  //    } 
-  //    M.toast({html: `Registro Salvo com sucesso!`,displayLength: 1500, classes:'green'});
-  //    this.form.reset();
-  //  }
-
   saveServico() {
     if (!this.servico.id) {
       // Novo serviço, usar o método save
@@ -88,20 +77,17 @@ export class FormServicosPageComponent implements OnInit {
      });     
      
     } else {
-      this.servico$ = this.apiServico.updateObs(this.servico);
-     
-     this.servico$.subscribe({
-      next:(serv) => {
-        M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
+      this.servico$ = this.apiServico.updateObs(this.servico);     
+      this.servico$.subscribe({
+        next:(serv) => {
+         M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
       },
-      error:(error) => {
-        alert (error);
+        error:(error) => {
+           alert (error);
       }
      });
     }
     this.form.reset();
-
   }
-  
 
 }

@@ -81,7 +81,7 @@ export class ServicoPromiseService {
 
   updateObs(servico: Servico): Observable<Servico> {
     return this.httpClient
-      .put<Servico>(this.url, 
+      .put<Servico>(`${this.url}/${servico.id}`, 
         JSON.stringify(servico), 
         this.httpOptions)
       .pipe(
@@ -96,7 +96,7 @@ export class ServicoPromiseService {
     return lastValueFrom(this.httpClient.delete(`${this.url}/${servico.id}`));
   }
 
-  deleteObs(servico: Servico): Observable<Object> {
+  deleteObs(servico: Servico): Observable<any> {
     return this.httpClient.delete(
       `${this.url}/${servico.id}`)
       .pipe(

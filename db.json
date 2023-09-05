@@ -7,16 +7,10 @@
       "id": 1
     },
     {
-      "codigoServico": "cbb7f216-f33b-45c0-af10-d4c2d64559fe",
-      "descricaoServico": "PETZ VETZ",
-      "valorServico": 100,
-      "id": 2
-    },
-    {
-      "codigoServico": "b1a5c022-eefb-4ead-8760-7665ac95c59a",
+      "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
       "descricaoServico": "PETZ DELIVERY",
       "valorServico": 30,
-      "id": 4
+      "id": 3
     }
   ],
   "clientes": [
@@ -28,25 +22,25 @@
       "emailCliente": "johnfoo@foo.com.br"
     },
     {
-      "id": 2,
-      "codigoCliente": "bf08f5d3-3558-495a-a6ad-16ccda14c569",
-      "nomeCliente": "Mary Jane",
-      "celularCliente": "(11) 99567-9901",
-      "emailCliente": "janemail@gmail.com"
-    },
-    {
       "id": 3,
       "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
       "nomeCliente": "Nencil Blanco",
-      "celularCliente": "(21) 99789-6789",
+      "celularCliente": "(21) 99789-6788",
       "emailCliente": "nencil.blanco@gmail.com"
     },
     {
       "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
       "nomeCliente": "Danny Boy",
-      "celularCliente": "(13) 88640-5360",
+      "celularCliente": "(13) 88640-5359",
       "emailCliente": "danny.boy@linx.com.br",
       "id": 4
+    },
+    {
+      "codigoCliente": "4b62ae89-15e7-4eb2-9e3d-674601466c4d",
+      "nomeCliente": "Jose Garcia",
+      "celularCliente": "(13) 99567-1230",
+      "emailCliente": "jose@garcia.com.br",
+      "id": 5
     }
   ],
   "agendas": []
