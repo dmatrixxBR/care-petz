@@ -1,13 +1,14 @@
 import { Servico } from './../models/servico';
 import { Injectable } from '@angular/core';
+import { Constants } from '../util/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageServicoService {
 
-  private storageKey = 'servicos';
-  private storageKeyID = 'servicoid';
+  private storageKey = Constants.SERVICO_STORAGE_KEY;
+  private storageKeyID = Constants.SERVICO_STORAGE_KEY_ID;
 
   constructor() {}
 

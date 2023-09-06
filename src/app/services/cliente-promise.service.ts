@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { catchError, lastValueFrom, Observable, throwError } from 'rxjs';
 import { Cliente } from '../models/cliente';
 import { ErrorUtils } from '../util/error-utils';
+import { Constants } from '../util/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientePromiseService {
 
-  url = 'http://localhost:3000/clientes';
+  url = Constants.CLIENTE_SERVICE_URL;
 
   httpOptions = { headers: new HttpHeaders({'Content-Type' : 'application/json'})};
 

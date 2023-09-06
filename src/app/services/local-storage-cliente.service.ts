@@ -1,14 +1,15 @@
 import { Cliente } from './../models/cliente';
 import { Injectable } from '@angular/core';
 import { v4 as uuid } from 'uuid';
+import { Constants } from '../util/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageClienteService {
 
-  private storageKey = 'clientes';
-  private storageKeyID = 'clienteid';
+  private storageKey = Constants.CLIENTE_STORAGE_KEY;
+  private storageKeyID = Constants.CLIENTE_STORAGE_KEY_ID;
 
   constructor() {}
 

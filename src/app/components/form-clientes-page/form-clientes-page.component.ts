@@ -5,6 +5,7 @@ import { Cliente } from './../../models/cliente';
 import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 import * as M from 'materialize-css';
 import { Observable } from 'rxjs';
+import { Constants } from 'src/app/util/constants';
 
 @Component({
   selector: 'app-form-clientes-page',
@@ -29,7 +30,7 @@ export class FormClientesPageComponent implements OnInit {
       this.setEmptyCliente();
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
-        M.toast({html: `Parametro Passado no Cliente ` + idParam,displayLength: 1500, classes:'green'});
+        M.toast({html: `Parametro Passado no Cliente ` + idParam,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'green'});
         this.getCliente(idParam);
       }
     }
@@ -42,7 +43,7 @@ export class FormClientesPageComponent implements OnInit {
           this.cliente = cli;
         },
         error: (error) =>{
-          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
         }
       })
     }
@@ -68,10 +69,10 @@ export class FormClientesPageComponent implements OnInit {
      
      this.cliente$.subscribe({
       next:(cli) => {
-        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
+        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: Constants.TIME_INTERVAL_MESSAGE, classes: 'green' });
       },
       error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       }
      });     
      
@@ -79,10 +80,10 @@ export class FormClientesPageComponent implements OnInit {
       this.cliente$ = this.apiCliente.updateObs(this.cliente);     
       this.cliente$.subscribe({
         next:(cli) => {
-         M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
+         M.toast({ html: `Registro alterado com sucesso!`, displayLength: Constants.TIME_INTERVAL_MESSAGE, classes: 'green' });
       },
         error:(error) => {
-          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       }
      });
     }

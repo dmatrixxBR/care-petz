@@ -15,11 +15,11 @@
     {
       "codigoServico": "a67556f2-4bca-47fb-8bfc-60dcfc3aa4fa",
       "descricaoServico": "PETZ DELIVERY",
-      "valorServico": 30,
+      "valorServico": 20,
       "id": 3
     },
     {
-      "codigoServico": "54da29dc-0bba-40f8-9e31-32661cc48766",
+      "codigoServico": "c2211662-42c3-471a-ae62-c1b58e2155e7",
       "descricaoServico": "PETZ WALKER",
       "valorServico": 75,
       "id": 4
@@ -48,17 +48,17 @@
       "id": 3
     },
     {
-      "codigoCliente": "3bd6c527-4106-4f49-80cd-cf357e15173a",
+      "codigoCliente": "d9c02f81-e61c-48d4-b94b-ea7806aecdbe",
       "nomeCliente": "Marcia Florida",
-      "celularCliente": "21997651220",
-      "emailCliente": "ehflorida@terra.com.br",
-      "id": 5
+      "celularCliente": "21996876458",
+      "emailCliente": "ehflorida@gmail.com",
+      "id": 4
     }
   ],
   "agendas": [
     {
-      "codigoAgenda": "e67acd32-d44a-406f-a4f3-fff42ab9661b",
-      "horaAgenda": "22:13",
+      "codigoAgenda": "5d7496bd-a210-4234-bcb7-720bf2b20f54",
+      "horaAgenda": "23:17",
       "dataAgenda": "05/09/2023",
       "clienteId": {
         "codigoCliente": "34726633-1425-40d3-8270-f11e1689b9c5",
@@ -77,8 +77,8 @@
       "id": 1
     },
     {
-      "codigoAgenda": "73742bfe-f730-40c4-90d7-eaf03c9414ec",
-      "horaAgenda": "22:13",
+      "codigoAgenda": "c79bfdd5-2b5f-4d55-9e73-2157720edd6b",
+      "horaAgenda": "23:17",
       "dataAgenda": "05/09/2023",
       "clienteId": {
         "codigoCliente": "a98f9a43-74c9-4f63-b3b3-7370f6fac5a5",
@@ -97,8 +97,8 @@
       "id": 2
     },
     {
-      "codigoAgenda": "df1e8567-5d8d-433f-81ee-67c2c359cadb",
-      "horaAgenda": "22:14",
+      "codigoAgenda": "b55925d7-ab75-4780-8fc3-54dd76bdd03b",
+      "horaAgenda": "23:17",
       "dataAgenda": "05/09/2023",
       "clienteId": {
         "codigoCliente": "45906203-7861-490e-9cbd-183416c801b2",
@@ -108,53 +108,33 @@
         "id": 2
       },
       "servicoId": {
-        "codigoServico": "a67556f2-4bca-47fb-8bfc-60dcfc3aa4fa",
-        "descricaoServico": "PETZ DELIVERY",
-        "valorServico": 30,
-        "id": 3
-      },
-      "valorServico": 30,
-      "id": 3
-    },
-    {
-      "codigoAgenda": "1dfc8071-9a30-40f4-bb0e-a5f95f55b367",
-      "horaAgenda": "22:14",
-      "dataAgenda": "05/09/2023",
-      "servicoId": {
-        "codigoServico": "54da29dc-0bba-40f8-9e31-32661cc48766",
+        "codigoServico": "c2211662-42c3-471a-ae62-c1b58e2155e7",
         "descricaoServico": "PETZ WALKER",
         "valorServico": 75,
         "id": 4
       },
       "valorServico": 75,
-      "clienteId": {
-        "codigoCliente": "3bd6c527-4106-4f49-80cd-cf357e15173a",
-        "nomeCliente": "Marcia Florida",
-        "celularCliente": "21997651220",
-        "emailCliente": "ehflorida@terra.com.br",
-        "id": 5
-      },
-      "id": 4
+      "id": 3
     },
     {
-      "codigoAgenda": "de267e1c-f831-4e85-a6fc-e1bbb54fd43d",
-      "horaAgenda": "22:17",
+      "codigoAgenda": "fedde44e-43ee-409c-8663-a6b278ef5cfd",
+      "horaAgenda": "23:17",
       "dataAgenda": "05/09/2023",
       "clienteId": {
-        "codigoCliente": "a98f9a43-74c9-4f63-b3b3-7370f6fac5a5",
-        "nomeCliente": "Danny Boy",
-        "celularCliente": "13996786100",
-        "emailCliente": "dmatrixx@gmail.com",
-        "id": 1
+        "codigoCliente": "d9c02f81-e61c-48d4-b94b-ea7806aecdbe",
+        "nomeCliente": "Marcia Florida",
+        "celularCliente": "21996876458",
+        "emailCliente": "ehflorida@gmail.com",
+        "id": 4
       },
       "servicoId": {
-        "codigoServico": "c58e7f90-95dd-449f-b489-b048e4b0dd32",
-        "descricaoServico": "PETZ CARE",
-        "valorServico": 60,
-        "id": 1
+        "codigoServico": "16b255b8-d1aa-470e-9188-d6cf1cb6a0f0",
+        "descricaoServico": "PETZ VETZ",
+        "valorServico": 100,
+        "id": 2
       },
-      "valorServico": 60,
-      "id": 5
+      "valorServico": 100,
+      "id": 4
     }
   ]
 }

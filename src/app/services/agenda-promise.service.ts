@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, lastValueFrom, throwError } from 'rxjs';
 import { Agenda } from '../models/agenda';
 import { ErrorUtils } from '../util/error-utils';
+import { Constants } from '../util/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { ErrorUtils } from '../util/error-utils';
 export class AgendaPromiseService {
 
  
-  url = 'http://localhost:3000/agendas';
+  url = Constants.AGENDA_SERVICE_URL;
 
   httpOptions = { headers: new HttpHeaders({'Content-Type' : 'application/json'})};
 

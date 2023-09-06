@@ -4,6 +4,7 @@ import { Servico } from 'src/app/models/servico';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
 import { Observable } from 'rxjs';
+import { Constants } from 'src/app/util/constants';
 
 @Component({
   selector: 'app-form-servicos-page',
@@ -31,7 +32,7 @@ export class FormServicosPageComponent implements OnInit {
       this.title = 'Serviços';
       let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
-        M.toast({html: `Parametro Passado no Serviço ` + idParam,displayLength: 1500, classes:'green'});
+        M.toast({html: `Parametro Passado no Serviço ` + idParam,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'green'});
        this.getServico(idParam);
       }
     }
@@ -44,7 +45,7 @@ export class FormServicosPageComponent implements OnInit {
           this.servico = serv;
         },
         error: (error) =>{
-          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
         }
       })
     }
@@ -69,10 +70,10 @@ export class FormServicosPageComponent implements OnInit {
      
      this.servico$.subscribe({
       next:(serv) => {
-        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: 1500, classes: 'green' });
+        M.toast({ html: `Registro Salvo com sucesso!`, displayLength: Constants.TIME_INTERVAL_MESSAGE, classes: 'green' });
       },
       error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       }
      });     
      
@@ -80,10 +81,10 @@ export class FormServicosPageComponent implements OnInit {
       this.servico$ = this.apiServico.updateObs(this.servico);     
       this.servico$.subscribe({
         next:(serv) => {
-         M.toast({ html: `Registro alterado com sucesso!`, displayLength: 1500, classes: 'green' });
+         M.toast({ html: `Registro alterado com sucesso!`, displayLength: Constants.TIME_INTERVAL_MESSAGE, classes: 'green' });
       },
         error:(error) => {
-          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       }
      });
     }

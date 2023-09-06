@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Servico } from 'src/app/models/servico';
 import { ServicoPromiseService } from 'src/app/services/servico-promise.service';
 import { Observable } from 'rxjs';
+import { Constants } from 'src/app/util/constants';
 
 @Component({
   selector: 'app-form-servicos-list-page',
@@ -47,11 +48,11 @@ export class FormServicosListPageComponent implements OnInit {
 
     this.servico$.subscribe({
       next: (serv) =>{
-        M.toast({html: `Registro Excluido com sucesso ` ,displayLength: 1500, classes:'green'});
+        M.toast({html: `Registro Excluido com sucesso ` ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'green'});
         this.getData();
       },
       error:(error) => {        
-        M.toast({html: `Erro ocorrido => `+ error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => `+ error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       } 
     });   
   }
@@ -64,7 +65,7 @@ export class FormServicosListPageComponent implements OnInit {
         this.servicosCounter = servs.length;
       },
       error:(error) =>{
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       }
 
   });  

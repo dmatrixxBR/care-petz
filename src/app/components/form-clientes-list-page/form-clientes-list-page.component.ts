@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
+import { Constants } from 'src/app/util/constants';
 
 @Component({
   selector: 'app-form-clientes-list-page',
@@ -49,11 +50,11 @@ export class FormClientesListPageComponent implements OnInit {
 
     this.cliente$.subscribe({
       next: (cli) =>{
-        M.toast({html: `Registro Excluido com sucesso ` ,displayLength: 1500, classes:'green'});
+        M.toast({html: `Registro Excluido com sucesso ` ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'green'});
         this.getData();
       },
       error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       } 
     }); 
   }
@@ -65,7 +66,7 @@ export class FormClientesListPageComponent implements OnInit {
         this.clientesCounter = clis.length;
       },
       error:(error) =>{
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       }
 
   });  

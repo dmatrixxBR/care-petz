@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom, Observable,catchError,throwError } from 'rxjs';
 import { Servico } from '../models/servico';
+import { Constants } from '../util/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Servico } from '../models/servico';
 
 export class ServicoPromiseService {
 
-  url = 'http://localhost:3000/servicos';
+  url = Constants.SERVICO_SERVICE_URL;
 
   httpOptions = { headers: new HttpHeaders({'Content-Type' : 'application/json'})};
 

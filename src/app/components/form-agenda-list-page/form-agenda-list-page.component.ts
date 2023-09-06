@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Agenda } from 'src/app/models/agenda';
 import { AgendaPromiseService } from 'src/app/services/agenda-promise.service';
+import { Constants } from 'src/app/util/constants';
 
 @Component({
   selector: 'app-form-agenda-list-page',
@@ -50,11 +51,11 @@ export class FormAgendaListPageComponent implements OnInit {
 
     this.agenda$.subscribe({
       next: (agd) =>{
-        M.toast({html: `Registro Excluido com sucesso`,displayLength: 1500, classes:'green'});
+        M.toast({html: `Registro Excluido com sucesso`,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'green'});
         this.getData();
       },
       error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
         this.getData();
         
       } 
@@ -69,7 +70,7 @@ export class FormAgendaListPageComponent implements OnInit {
           this.agendasCounter = agds.length;
         },
         error:(error) =>{
-          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
         }
   
     });  

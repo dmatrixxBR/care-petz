@@ -1,13 +1,14 @@
 import { Agenda } from './../models/agenda';
 import { Injectable } from '@angular/core';
+import { Constants } from '../util/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageAgendaService {
 
-  private storageKey = 'agendas';
-  private storageKeyID = 'agendaid';
+  private storageKey = Constants.AGENDA_STORAGE_KEY;
+  private storageKeyID = Constants.AGENDA_STORAGE_KEY_ID;
 
   constructor() {}
 

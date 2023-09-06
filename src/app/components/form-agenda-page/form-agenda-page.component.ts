@@ -9,6 +9,7 @@ import { ServicoPromiseService } from 'src/app/services/servico-promise.service'
 import { ClientePromiseService } from 'src/app/services/cliente-promise.service';
 import { AgendaPromiseService } from 'src/app/services/agenda-promise.service';
 import { Observable } from 'rxjs';
+import { Constants } from 'src/app/util/constants';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class FormAgendaPageComponent implements OnInit {
     this.loadServiceList();
     let idParam: string = this.route.snapshot.paramMap.get('id')!;
       if(idParam){
-        M.toast({html: `Parametro Passado na Agenda ` + idParam,displayLength: 1500, classes:'green'});
+        M.toast({html: `Parametro Passado na Agenda ` + idParam,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'green'});
         this.getAgenda(idParam); 
        
         
@@ -76,7 +77,7 @@ export class FormAgendaPageComponent implements OnInit {
           this.agenda = agd;
         },
         error: (error) =>{
-          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+          M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
         }
       }); 
   }
@@ -121,7 +122,7 @@ export class FormAgendaPageComponent implements OnInit {
         this.servicos = servs;
       },
       error:(error) =>{
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
       }
   });  
 
@@ -160,10 +161,10 @@ saveAgenda() {
    
    this.agenda$.subscribe({
     next:(agd) => {
-      M.toast({ html: `Registro Salvo com sucesso! - ` + agd.id, displayLength: 1500, classes: 'green' });
+      M.toast({ html: `Registro Salvo com sucesso! - ` + agd.id, displayLength: Constants.TIME_INTERVAL_MESSAGE, classes: 'green' });
     },
     error:(error) => {
-      M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+      M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
     }
    });     
    
@@ -171,10 +172,10 @@ saveAgenda() {
     this.agenda$ = this.apiAgenda.updateObs(this.agenda);     
     this.agenda$.subscribe({
       next:(agd) => {
-       M.toast({ html: `Registro alterado com sucesso! - ` + agd.id , displayLength: 1500, classes: 'green' });
+       M.toast({ html: `Registro alterado com sucesso! - ` + agd.id , displayLength: Constants.TIME_INTERVAL_MESSAGE, classes: 'green' });
     },
       error:(error) => {
-        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: 1500, classes:'red'});
+        M.toast({html: `Erro ocorrido => ` + error.message ,displayLength: Constants.TIME_INTERVAL_MESSAGE, classes:'red'});
     }
    });
   }

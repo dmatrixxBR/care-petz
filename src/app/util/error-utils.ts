@@ -8,12 +8,11 @@ export class ErrorUtils {
         let errorMessage = '';
         console.log(error);
         if (error.status === 0) {
-          //if (error instanceof Error || error instanceof ErrorEvent) {
           console.error('cliente');
           errorMessage =
             error instanceof AppError
               ? error.message
-              : 'Opsss! Um problema inesperado aconteceu! (lado cliente)';
+              : ' Problema inesperado  (lado cliente)';
         } else {
           console.error('servidor');
           errorMessage = ErrorUtils.getServerErrorMessage(error);
@@ -26,17 +25,30 @@ export class ErrorUtils {
     
       public static getServerErrorMessage(error: HttpErrorResponse) {
         switch (error.status) {
+          case 402:{
+            return `Pagamento Requerido`;
+          }
           case 404: {
             return `O recurso informado não foi encontrado!`;
           }
           case 403: {
             return `O acesso foi negado!`;
           }
+          case 405:{
+            return `Método não permitido`;
+          }
+          case 408:{
+            return `Timeout Requerido`;
+          }
+          case 410:{
+            return `Conteúdo Excluido do Servidor`;
+          }
+
           case 500: {
-            return `Oppsss! Um erro inesperado aconteceu!`;
+            return `Erro inesperado!`;
           }
           default: {
-            return `Oppsss! Um erro inesperado aconteceu! Tente novamente mais tarde!`;
+            return `Erro inesperado! Tente novamente mais tarde!`;
           }
         }
       }
