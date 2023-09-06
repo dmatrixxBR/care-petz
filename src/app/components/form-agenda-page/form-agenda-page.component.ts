@@ -56,9 +56,9 @@ export class FormAgendaPageComponent implements OnInit {
     
 
       const servicoSelect = document.getElementById('servicoAgenda') as HTMLSelectElement;
-      servicoSelect.addEventListener('change', () => {
+      /*servicoSelect.addEventListener('change', () => {
       this.updateValorServico();
-    });
+    });*/
 
   }
 

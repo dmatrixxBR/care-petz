@@ -41,7 +41,7 @@
                 >
               <label for="nomeCliente">Nome</label>
               <div class="red-text" [hidden]="nomecliente.valid || nomecliente.untouched">
-                Por favor, informe o seu nome completo.
+                Por favor, informe o seu nome completo com iniciais em maiúsculo.
               </div>              
 
             </div>
@@ -54,13 +54,13 @@
                 class="validate"
                 [(ngModel)]="this.cliente.celularCliente"
                 #celularcliente="ngModel"
-                pattern="^\(\d{2}\) \d{5}-\d{4}$" 
+                pattern="^\d{2}\d{5}\d{4}$" 
                 name="celularCliente"
                 required
                 >
               <label for="celularCliente">Celular</label>
               <div class="red-text" [hidden]="celularcliente.valid || celularcliente.untouched">
-                Informe no Formato valido (99) 99999-9999.
+                Informe o numero com o DDD e 9 digitos.Ex. 99999999999.
               </div>
             </div>
         </div> 

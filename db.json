@@ -1,140 +1,160 @@
 {
   "servicos": [
     {
-      "codigoServico": "5f5d96ca-16fe-4834-b457-229b64ae2a0d",
+      "codigoServico": "c58e7f90-95dd-449f-b489-b048e4b0dd32",
       "descricaoServico": "PETZ CARE",
-      "valorServico": 50,
+      "valorServico": 60,
       "id": 1
     },
     {
-      "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
+      "codigoServico": "16b255b8-d1aa-470e-9188-d6cf1cb6a0f0",
+      "descricaoServico": "PETZ VETZ",
+      "valorServico": 100,
+      "id": 2
+    },
+    {
+      "codigoServico": "a67556f2-4bca-47fb-8bfc-60dcfc3aa4fa",
       "descricaoServico": "PETZ DELIVERY",
       "valorServico": 30,
       "id": 3
     },
     {
-      "codigoServico": "a2326c91-5194-40b6-b241-dae93f6ee9d2",
-      "descricaoServico": "PETZ VETZ",
-      "valorServico": 120,
-      "id": 5
-    },
-    {
-      "codigoServico": "dfc4fe7d-ad0a-49e3-9dc7-a6e1666c59a2",
+      "codigoServico": "54da29dc-0bba-40f8-9e31-32661cc48766",
       "descricaoServico": "PETZ WALKER",
-      "valorServico": 90,
-      "id": 6
+      "valorServico": 75,
+      "id": 4
     }
   ],
   "clientes": [
     {
-      "id": 1,
-      "codigoCliente": "99ba3cac-b666-4813-94a7-9a4304b571fc",
-      "nomeCliente": "John Foo",
-      "celularCliente": "(13) 99678-6110",
-      "emailCliente": "johnfoo@foo.com.br"
-    },
-    {
-      "id": 3,
-      "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
-      "nomeCliente": "Nencil Blanco",
-      "celularCliente": "(21) 99789-6788",
-      "emailCliente": "nencil.blanco@gmail.com"
-    },
-    {
-      "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
+      "codigoCliente": "a98f9a43-74c9-4f63-b3b3-7370f6fac5a5",
       "nomeCliente": "Danny Boy",
-      "celularCliente": "(13) 99678-6012",
-      "emailCliente": "danny.boy@linx.com.br",
-      "id": 4
+      "celularCliente": "13996786100",
+      "emailCliente": "dmatrixx@gmail.com",
+      "id": 1
     },
     {
-      "codigoCliente": "0bafe49f-5b60-4b94-abd6-fb772cd8380a",
-      "celularCliente": "(21) 99789-6770",
-      "nomeCliente": "Beth Boop",
-      "emailCliente": "boop@bettyboop.com",
-      "id": 6
+      "codigoCliente": "45906203-7861-490e-9cbd-183416c801b2",
+      "nomeCliente": "Nencil Blanco",
+      "celularCliente": "13994701540",
+      "emailCliente": "nencil@uol.com.br",
+      "id": 2
+    },
+    {
+      "codigoCliente": "34726633-1425-40d3-8270-f11e1689b9c5",
+      "nomeCliente": "Betty Boop",
+      "celularCliente": "11998709876",
+      "emailCliente": "betty.boop@globo.com",
+      "id": 3
+    },
+    {
+      "codigoCliente": "3bd6c527-4106-4f49-80cd-cf357e15173a",
+      "nomeCliente": "Marcia Florida",
+      "celularCliente": "21997651220",
+      "emailCliente": "ehflorida@terra.com.br",
+      "id": 5
     }
   ],
   "agendas": [
     {
-      "codigoAgenda": "aa97b81c-e784-4e2f-b209-e32f09710aa5",
-      "horaAgenda": "19:12",
+      "codigoAgenda": "e67acd32-d44a-406f-a4f3-fff42ab9661b",
+      "horaAgenda": "22:13",
       "dataAgenda": "05/09/2023",
       "clienteId": {
-        "codigoCliente": "d3b4b320-2e2e-49e2-bfa4-12637136ab66",
-        "nomeCliente": "Danny Boy",
-        "celularCliente": "(13) 99678-6012",
-        "emailCliente": "danny.boy@linx.com.br",
-        "id": 4
+        "codigoCliente": "34726633-1425-40d3-8270-f11e1689b9c5",
+        "nomeCliente": "Betty Boop",
+        "celularCliente": "11998709876",
+        "emailCliente": "betty.boop@globo.com",
+        "id": 3
       },
       "servicoId": {
-        "codigoServico": "a2326c91-5194-40b6-b241-dae93f6ee9d2",
-        "descricaoServico": "PETZ VETZ",
-        "valorServico": 120,
-        "id": 5
+        "codigoServico": "c58e7f90-95dd-449f-b489-b048e4b0dd32",
+        "descricaoServico": "PETZ CARE",
+        "valorServico": 60,
+        "id": 1
       },
-      "valorServico": 120,
+      "valorServico": 60,
       "id": 1
     },
     {
-      "codigoAgenda": "06fdce05-f48b-42e0-a238-3e7f8bf55281",
-      "horaAgenda": "19:13",
+      "codigoAgenda": "73742bfe-f730-40c4-90d7-eaf03c9414ec",
+      "horaAgenda": "22:13",
       "dataAgenda": "05/09/2023",
       "clienteId": {
-        "id": 3,
-        "codigoCliente": "043ba005-1e43-4b90-89f6-e2d92b4e9bc1",
-        "nomeCliente": "Nencil Blanco",
-        "celularCliente": "(21) 99789-6788",
-        "emailCliente": "nencil.blanco@gmail.com"
+        "codigoCliente": "a98f9a43-74c9-4f63-b3b3-7370f6fac5a5",
+        "nomeCliente": "Danny Boy",
+        "celularCliente": "13996786100",
+        "emailCliente": "dmatrixx@gmail.com",
+        "id": 1
       },
       "servicoId": {
-        "codigoServico": "17104a01-d69f-4f73-ae58-555a5d3c9c4e",
+        "codigoServico": "16b255b8-d1aa-470e-9188-d6cf1cb6a0f0",
+        "descricaoServico": "PETZ VETZ",
+        "valorServico": 100,
+        "id": 2
+      },
+      "valorServico": 100,
+      "id": 2
+    },
+    {
+      "codigoAgenda": "df1e8567-5d8d-433f-81ee-67c2c359cadb",
+      "horaAgenda": "22:14",
+      "dataAgenda": "05/09/2023",
+      "clienteId": {
+        "codigoCliente": "45906203-7861-490e-9cbd-183416c801b2",
+        "nomeCliente": "Nencil Blanco",
+        "celularCliente": "13994701540",
+        "emailCliente": "nencil@uol.com.br",
+        "id": 2
+      },
+      "servicoId": {
+        "codigoServico": "a67556f2-4bca-47fb-8bfc-60dcfc3aa4fa",
         "descricaoServico": "PETZ DELIVERY",
         "valorServico": 30,
         "id": 3
       },
       "valorServico": 30,
-      "id": 2
-    },
-    {
-      "codigoAgenda": "86629efa-0cda-4fa1-8605-fa09b46a4aef",
-      "horaAgenda": "19:13",
-      "dataAgenda": "05/09/2023",
-      "clienteId": {
-        "id": 1,
-        "codigoCliente": "99ba3cac-b666-4813-94a7-9a4304b571fc",
-        "nomeCliente": "John Foo",
-        "celularCliente": "(13) 99678-6110",
-        "emailCliente": "johnfoo@foo.com.br"
-      },
-      "servicoId": {
-        "codigoServico": "5f5d96ca-16fe-4834-b457-229b64ae2a0d",
-        "descricaoServico": "PETZ CARE",
-        "valorServico": 50,
-        "id": 1
-      },
-      "valorServico": 30,
       "id": 3
     },
     {
-      "codigoAgenda": "dd764ddd-113e-47c9-9ad6-6d7299b2d2d7",
-      "horaAgenda": "19:13",
+      "codigoAgenda": "1dfc8071-9a30-40f4-bb0e-a5f95f55b367",
+      "horaAgenda": "22:14",
+      "dataAgenda": "05/09/2023",
+      "servicoId": {
+        "codigoServico": "54da29dc-0bba-40f8-9e31-32661cc48766",
+        "descricaoServico": "PETZ WALKER",
+        "valorServico": 75,
+        "id": 4
+      },
+      "valorServico": 75,
+      "clienteId": {
+        "codigoCliente": "3bd6c527-4106-4f49-80cd-cf357e15173a",
+        "nomeCliente": "Marcia Florida",
+        "celularCliente": "21997651220",
+        "emailCliente": "ehflorida@terra.com.br",
+        "id": 5
+      },
+      "id": 4
+    },
+    {
+      "codigoAgenda": "de267e1c-f831-4e85-a6fc-e1bbb54fd43d",
+      "horaAgenda": "22:17",
       "dataAgenda": "05/09/2023",
       "clienteId": {
-        "codigoCliente": "0bafe49f-5b60-4b94-abd6-fb772cd8380a",
-        "celularCliente": "(21) 99789-6770",
-        "nomeCliente": "Beth Boop",
-        "emailCliente": "boop@bettyboop.com",
-        "id": 6
+        "codigoCliente": "a98f9a43-74c9-4f63-b3b3-7370f6fac5a5",
+        "nomeCliente": "Danny Boy",
+        "celularCliente": "13996786100",
+        "emailCliente": "dmatrixx@gmail.com",
+        "id": 1
       },
       "servicoId": {
-        "codigoServico": "dfc4fe7d-ad0a-49e3-9dc7-a6e1666c59a2",
-        "descricaoServico": "PETZ WALKER",
-        "valorServico": 90,
-        "id": 6
+        "codigoServico": "c58e7f90-95dd-449f-b489-b048e4b0dd32",
+        "descricaoServico": "PETZ CARE",
+        "valorServico": 60,
+        "id": 1
       },
-      "valorServico": 90,
-      "id": 4
+      "valorServico": 60,
+      "id": 5
     }
   ]
 }
