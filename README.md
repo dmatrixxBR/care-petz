@@ -6,7 +6,7 @@ O frontend da aplicação será desenvolvido com Angular e o backend simulado pe
 
 
 ## Endereço de Deploy - GitHub Pages
-https://github.com/dmatrixxBR/care-petz
+https://dmatrixxbr.github.io/care-petz/
 
 
 ## Protótipo
@@ -31,7 +31,7 @@ https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf. 
 - [x] Formatar a apresentação de dados com Pipes. 
-- [ ] Build e deploy da aplicação. 
+- [x] Build e deploy da aplicação. 
 
 ## Manual de execução
 - Clonar o repositório com `git clone`
