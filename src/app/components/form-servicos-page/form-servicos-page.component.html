@@ -36,12 +36,12 @@
             [(ngModel)]="this.servico.descricaoServico" 
             name="descricaoServico"
             #descricao="ngModel"
-            pattern="^.{5,}$"
+            pattern="^\S.{5,}$"
             required
             >
           <label for="descricaoServico">Descrição</label>
           <div class="red-text" [hidden]="descricao.valid || descricao.untouched">
-            A descrição do serviço precisa ter mais de 5 caracteres
+            A descrição do serviço precisa ter mais de 5 caracteres e não pode iniciar com espaços
           </div>
         </div>
     </div>
