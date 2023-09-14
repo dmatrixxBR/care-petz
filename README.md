@@ -8,6 +8,9 @@ O frontend da aplicação será desenvolvido com Angular e o backend simulado pe
 ## Endereço de Deploy - GitHub Pages
 https://dmatrixxbr.github.io/care-petz/
 
+## Video Explicativo do Desenvolvimento do Projeto
+https://www.youtube.com/watch?v=udVpMb6o7mE
+
 
 ## Protótipo
 https://www.figma.com/proto/N4EdtUFZ6KKBRVjEfcLaQa/CarePetz?type=design&node-id=8-124&t=4LfgHOnvf8dwDktZ-0&scaling=contain&page-id=6%3A2&starting-point-node-id=8%3A124
